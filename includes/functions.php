@@ -57,9 +57,9 @@ function include_script($file) {
 }
 
 function fds_entete($titre) {
-
+  require('includes/entete.php');
 }
 
 function fds_basdepage() {
-
+  require('includes/basdepage.php');
 }
