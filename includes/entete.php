@@ -6,8 +6,14 @@
     <meta name="keywords" lang="fr" content="Fête de la science, UTC" />
     <meta name="description" lang="fr" content="" />
     <link href="/fetedelascience/style/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/fetedelascience/images/favicon.png"/>
   </head>
   <body>
+  <div class="row">
+  <div span="12">
+  <img src="/fetedelascience/images/bandeauFDS.jpg" alt"bandeau"/> 
+  </div>
+  </div>
     <div class="container-fluid">
       <div class="navbar">
         <div class="navbar-inner">
