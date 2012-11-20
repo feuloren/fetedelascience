@@ -1,0 +1,21 @@
+Le site utilise le système de gestion de versions git:
+
+Cela permet:
+* De voir tous les changements effectués sur le site depuis sa réécriture (nov 2012)
+* De gérer plus facilement et proprement le site (plus de ftp, gestion des fichiers modifiés automatique...)
+* De travailler à plusieurs si besoin
+
+Le dépôt git source est stocké sur le compte kappa webscien:
+pour le cloner : git clone webscien@kappa.utc.fr:fetedelascience.git
+
+Le site en lui même (dans le répertoire public_html) est un clone de ce dépôt source:
+Pour déployer un changement, après l'avoir testé en local, il faudra donc:
+1) envoyer les changements vers le dépôt source (git push)
+2) se connecter à kappa et exécuter la commande ./deploy
+
+Le dépôt contient plusieurs hooks:
+* Avant chaque commit
+   _tous les espaces en fin de ligne sont supprimés,
+   _la syntaxe des fichiers php est vérifiée (php -l) si le système détecte une erreur le commit sera interrompu.
+   _si des fichiers sont ajoutés directement à la racine ou dans pages le commit sera interrompu
+* Lors d'un push un hooks indique comment déployer les changements sur le site

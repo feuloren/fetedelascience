@@ -1,0 +1,29 @@
+Le site est organisé de la façon suivante:
+
+Les dossiers images, documents et style dont directement accessibles:
+* Le dossier image doit contenir les images du site et photos diverses
+* Le dossier document doit contenir tout les autres types de documents accessibles au public (ex pdfs)
+* Le dossier style contient les feuilles de style du site
+Dans ces trois dossiers l'exécution des fichiers php est désactivée pour des raisons de sécurité.
+
+Les pages php ne doivent pas être à la racine du site mais dans le répertoire pages/$nom_de_la_page/page.php
+Les urls sont réécrites de la façon suivante:
+ http://www.utc.fr/fetedelascience/photos devient http://www.utc.fr/fetedelascience/index.php?page=photos
+
+La page index.php va ensuite rechercher si le dossier $page (photos dans notre exemple) existe et si
+ il contient un fichier $page.php (photos.php ici). Si oui il l'exécutera.
+Le fichier page.php est libre d'inclure n'importe quel fichier dans son répertoire pour plus de clarté.
+Les fichier includes/functions.php est inclut par index.php lui même, les fonctions qui y sont définies
+ sont donc utilisables n'importe quand. Voir le fichier pour plus de détails, notamment sur la fonction db_query.
+
+Dans chaque page il est possible d'appeler les fonctions
+* include_script($file) pour inclure un script js stocké dans le répertoire $page.
+* fds_entete($titre_page) qui écrit le début de la structure html du site (<html> + head + haut de page et menu)
+* fds_basdepage() qui écrit la fin de la structure html (sponsors + </html>)
+
+Merci de respecter la structure du site pour une maintenance facilitée.
+Pour l'utilisation de git voir le fichier help/git
+
+Auteur original : Florent Thévenet <florent@fthevenet.fr> Novembre 2012
+
+Ajoutez vos noms à la liste :-)
