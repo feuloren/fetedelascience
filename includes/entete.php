@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title><?php echo $titre; ?></title>
+    <meta name="keywords" lang="fr" content="Fête de la science, UTC" />
+    <meta name="description" lang="fr" content="" />
+    <link href="/fetedelascience/style/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <ul class="nav">
+            <li class="active"><a href="/">Acceuil</a></li>
+            <li><a href="/fetedelascience/photos">Média</a></li>
+            <li><a href="/fetedelascience/ateliers">Ateliers</a></li>
+            <li><a href="/fetedelascience/conferences">Conférences</a></li>
+            <li><a href="/fetedelascience/comite">Comité</a></li>
+          </ul>
+        </div>
+      </div>
