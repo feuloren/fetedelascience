@@ -22,8 +22,9 @@
           <h1 class="fds-grandtitre">Fête de la science</h1><br/>
               <span>Du 10 au 14 octobre 2012</span>
         </div>
-        <div class="span2 vertical-align">
-          <img src="/fetedelascience/images/logo_utc100.png" alt"logo_utc"/>
+        <div class="span2">
+          <img class="vertical-align" src="/fetedelascience/images/logo_utc.png" alt"logo_utc"/>
+          <img class="vertical-align" src="/fetedelascience/images/logo_ministere.png" alt"logo_ministere"/>
         </div>
       </div>
       <div class="navbar navbar-inverse">

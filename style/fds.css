@@ -24,7 +24,8 @@
 }
 .vertical-align
 {
-
+  display : inline-block;
+  vertical-align: -50% ;
 }
 .fds-404 {
     text-align: center;
