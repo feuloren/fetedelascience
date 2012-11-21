@@ -1,8 +1,30 @@
 .fds-header
 {
-background-color : blue ;
+    background-color : blue ;
+    text-align: center;
+}
+.fds-grandtitre
+{
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1em;
+}
+.fds-grandtitre h1
+{
+    color: rgb(255, 255, 255);
+    font-size: 5em;
+    text-shadow: -5px -5px 15px rgba(255, 255, 255, 0.9), 5px 5px 15px rgba(255, 255, 255, 0.9);
+}
+.fds-grandtitre span
+{
+    font-size: 2em;
+    color: #d0d40a;
+    font-weight: bold;
 }
 .vertical-align
 {
 
+}
+.fds-404 {
+    text-align: center;
 }

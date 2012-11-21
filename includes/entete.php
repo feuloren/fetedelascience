@@ -13,19 +13,20 @@
     <link rel="icon" type="image/png" href="/fetedelascience/images/favicon.png"/>
   </head>
   <body>
-    <div class="row-fluid fds-header">
-      <div class="span4">
-        <img src="/fetedelascience/images/logo150.png" alt"logoFDS"/> 
-      </div>
-      <div class="span4">
-        un char
-      </div>
-      <div class="span4 vertical-align">
-        <img src="/fetedelascience/images/logo_utc100.png" alt"logo_utc"/>
-      </div>
-    </div>
     <div class="container-fluid">
-      <div class="navbar">
+      <div class="row-fluid fds-header">
+        <div class="span2">
+          <img src="/fetedelascience/images/logo150.png" alt"logoFDS"/>
+        </div>
+        <div class="span8 fds-grandtitre">
+          <h1 class="fds-grandtitre">Fête de la science</h1><br/>
+              <span>Du 10 au 14 octobre 2012</span>
+        </div>
+        <div class="span2 vertical-align">
+          <img src="/fetedelascience/images/logo_utc100.png" alt"logo_utc"/>
+        </div>
+      </div>
+      <div class="navbar navbar-inverse">
         <div class="navbar-inner">
           <ul class="nav">
             <li class="active"><a href="/">Acceuil</a></li>

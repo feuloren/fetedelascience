@@ -2,12 +2,6 @@
 fds_entete("Page introuvable");
 ?>
 
-<style>
-.fds-404 {
-text-align: center;
-}
-</style>
-
 <div class="row-fluid">
   <div class="span12 fds-404">
     <h1>Mama mia !</h1>
