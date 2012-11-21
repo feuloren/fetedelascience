@@ -63,3 +63,5 @@ function fds_entete($titre) {
 function fds_basdepage() {
   require('includes/basdepage.php');
 }
+
+require_once('format.php');
