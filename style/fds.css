@@ -1,6 +1,7 @@
 .fds-header
 {
-    background-color : blue ;
+    background-image: url(/fetedelascience/images/header.png) ;
+    background-repeat : repeat-x repeat-y;
     text-align: center;
 }
 .fds-grandtitre
