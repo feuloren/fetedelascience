@@ -9,14 +9,21 @@
     la science à l'UTC; Inscription en ligne pour les écoles, collèges
     et lycées." />
     <link href="/fetedelascience/style/bootstrap.min.css" rel="stylesheet">
+    <link href="/fetedelascience/style/fds.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/fetedelascience/images/favicon.png"/>
   </head>
   <body>
-  <div class="row">
-  <div span="12">
-  <img src="/fetedelascience/images/bandeauFDS.jpg" alt"bandeau"/> 
-  </div>
-  </div>
+    <div class="row-fluid fds-header">
+      <div class="span4">
+        <img src="/fetedelascience/images/logo150.png" alt"logoFDS"/> 
+      </div>
+      <div class="span4">
+        un char
+      </div>
+      <div class="span4 vertical-align">
+        <img src="/fetedelascience/images/logo_utc100.png" alt"logo_utc"/>
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="navbar">
         <div class="navbar-inner">
