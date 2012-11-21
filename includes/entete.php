@@ -35,5 +35,8 @@
             <li><a href="/fetedelascience/conferences">Conférences</a></li>
             <li><a href="/fetedelascience/comite">Comité</a></li>
           </ul>
+          <div class="nav pull-right">
+            <a href="/fetedelascience/inscriptFDS" class="btn btn-success">Inscription</a>
+          </div>
         </div>
       </div>
