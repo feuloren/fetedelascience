@@ -1,4 +1,4 @@
-<div class="row-fluid fds-footer">
+<div class="row-fluid fds-footer" >
           <div class="span2">
             <span class="label label-info">
             Nos partenaires :
