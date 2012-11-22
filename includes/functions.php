@@ -52,15 +52,31 @@ function db_query($query) {
   }
 }
 
+$additional_scripts = '';
 function include_script($file) {
+  global $additional_scripts;
+  $additional_scripts .= "<script src=\"";
+  if(stripos($file, '//') === 0 or stripos($file, 'http') === 0) {
+    $additional_scripts .= $file;
+  } else {
+    $additional_scripts .= "/fetedelascience/js/$file";
+  }
+  $additional_scripts .= "\"></script>\n";
+}
 
+$additional_headers = '';
+function add_header($header) {
+  global $additional_headers;
+  $additional_headers .= "$header\n";
 }
 
 function fds_entete($titre) {
+  global $additional_headers;
   require('includes/entete.php');
 }
 
 function fds_basdepage() {
+  global $additional_scripts;
   require('includes/basdepage.php');
 }
 
