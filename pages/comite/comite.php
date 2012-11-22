@@ -8,6 +8,11 @@ fds_entete('Comité Fête de la science 2012');
       La Fête de la Science de l'UTC nécessite une activité tout au long de l'année de l'équipe coordinatrice et du Comité de Pilotage,
       constitué de correspondants de différents départements et services de l'UTC et de partenaires extérieurs.
     </p>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6 well well-large">
     <h3>Correspondants :</h3>
     <ul class="unstyled">
       <li>Jean-Luc DUVAL  (UTC Génie Biologique)</li>
@@ -20,6 +25,8 @@ fds_entete('Comité Fête de la science 2012');
       <li>Emmanuel Corbasson (UTC Génie Mécanique)</li>
       <li>Sylvie LEFEBVRE (UTC Génie des Systèmes Urbains)</li>
     </ul>
+  </div>
+  <div class="span6 well well-large">
     <h3>Avec le soutien de :</h3>
     <ul class="unstyled">
 	    <li>Zohra CHERFI (UTC Direction des Enseignements et de la Pédagogie)</li>
@@ -30,11 +37,18 @@ fds_entete('Comité Fête de la science 2012');
       <li>François GRAUX</li>
 	    <li>Sylviane HÉAU</li>
     </ul>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6 well well-large">
     <h3>Coordination :</h3>
     <ul class="unstyled">
 	    <li>Élisabeth BRUNIER (UTC Service Culture Scientifique et Technologique - responsable de la manifestation)</li>
 	    <li>Aurélie SALIN (UTC Service Culture Scientifique et Technologique)</li>
     </ul>
+  </div>
+  <div class="span6 well well-large">
     <h3>Equipe d'étudiants-assistants :</h3>
     <ul class="unstyled">
       <li>Cyrine MADHI</li>
