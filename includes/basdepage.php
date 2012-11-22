@@ -1,4 +1,5 @@
 <div class="row-fluid fds-footer" >
+          <div class="well">
           <div class="span2">
             <span class="label label-info">
             Nos partenaires :
@@ -36,7 +37,7 @@
             <img src="/fetedelascience/images/bas/recherche.png" alt="logo_recherche">
           </div>
         </div>
-        </br>
+        </div>
       </div>
       </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
