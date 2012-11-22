@@ -30,7 +30,7 @@
       <div class="navbar navbar-inverse">
         <div class="navbar-inner">
           <ul class="nav">
-            <li class="active"><a href="/">Acceuil</a></li>
+            <li><a href="/fetedelascience">Acceuil</a></li>
             <li><a href="/fetedelascience/photos">Média</a></li>
             <li><a href="/fetedelascience/ateliers">Ateliers</a></li>
             <li><a href="/fetedelascience/conferences">Conférences</a></li>
