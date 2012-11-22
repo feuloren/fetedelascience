@@ -4,6 +4,10 @@
     background-repeat : repeat-x repeat-y;
     text-align: center;
 }
+.fds-footer
+{
+  background-color : rgb(245, 245, 245);
+}
 .fds-grandtitre
 {
     vertical-align: middle;
