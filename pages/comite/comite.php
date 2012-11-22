@@ -4,8 +4,7 @@ fds_entete('Comité Fête de la science 2012');
 
 <div class="row-fluid">
   <div class="span12 well well-large">
-    <p>
-      La Fête de la Science de l'UTC nécessite une activité tout au long de l'année de l'équipe coordinatrice et du Comité de Pilotage,
+    <p><h3 style="display:inline;">La Fête de la Science de l'UTC nécessite une activité tout au long de l'année</h3> de l'équipe coordinatrice et du Comité de Pilotage,
       constitué de correspondants de différents départements et services de l'UTC et de partenaires extérieurs.
     </p>
   </div>
