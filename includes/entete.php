@@ -32,7 +32,7 @@
         <div class="navbar-inner">
           <ul class="nav">
             <li><a href="/fetedelascience">Acceuil</a></li>
-            <li><a href="/fetedelascience/photos">Média</a></li>
+            <li><a href="/fetedelascience/photos">Photos</a></li>
             <li><a href="/fetedelascience/ateliers">Ateliers</a></li>
             <li><a href="/fetedelascience/conferences">Conférences</a></li>
             <li><a href="/fetedelascience/comite">Comité</a></li>
