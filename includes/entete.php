@@ -35,6 +35,7 @@
             <li><a href="/fetedelascience/photos">Photos</a></li>
             <li><a href="/fetedelascience/ateliers">Ateliers</a></li>
             <li><a href="/fetedelascience/conferences">Conférences</a></li>
+            <li><a href="/fetedelascience/archives">Archives</a></li>
             <li><a href="/fetedelascience/comite">Comité</a></li>
           </ul>
           <div class="nav pull-right">
