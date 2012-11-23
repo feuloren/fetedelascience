@@ -20,7 +20,7 @@
           <img src="/fetedelascience/images/logo150.png" alt="logoFDS"/>
         </div>
         <div class="span8 fds-grandtitre">
-          <h1 class="fds-grandtitre">Fête de la science</h1><br/>
+          <h1>Fête de la science</h1><br/>
               <span>Du 10 au 14 octobre 2012</span>
         </div>
         <div class="span2">
