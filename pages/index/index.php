@@ -24,7 +24,7 @@ fds_entete("UTC - Fête de la science");
       <li class="span4">
         <div class="thumbnail">
           <a href="/fetedelascience/atelier">
-            <img src="/fetedelascience/images/fds-planete.jpg"
+            <img src="/fetedelascience/images/planete-fds.png"
             alt="La planète Fête de la science" />
           </a>
           <h4>Découvrez le village des science</h4>
