@@ -1,5 +1,5 @@
 <div class="well">
-<div class="row-fluid fds-footer" >
+<div class="row-fluid fds-footer center">
           <div class="span2">
             <span class="label label-info">
             Nos partenaires :

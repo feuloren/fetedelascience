@@ -12,10 +12,15 @@
 {
     color: rgb(255, 255, 255);
     font-size: 5em;
-    text-shadow: -5px -5px 15px rgba(255, 255, 255, 0.9), 5px 5px 15px rgba(255, 255, 255, 0.9);
+    text-shadow: -5px -5px 15px rgba(255, 255, 255, 0.7), 5px 5px 15px rgba(255, 255, 255, 0.7);
     vertical-align: middle;
     display: inline-block;
     line-height: 1em;
+}
+.fds-grandtitre h1 a
+{
+    text-decoration: none;
+    color: white;
 }
 .fds-grandtitre span
 {
@@ -27,6 +32,9 @@
 {
   display : inline-block;
   vertical-align: -50% ;
+}
+.center {
+    text-align: center;
 }
 .fds-404 {
     text-align: center;

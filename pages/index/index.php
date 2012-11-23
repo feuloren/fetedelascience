@@ -62,7 +62,7 @@ fds_entete("UTC - Fête de la science");
 
   </div>
   <div class="span5 well well-large">
-    <h3>Acceuillez des conférenciers dans votre école !</h3>
+    <h3>Accueillez des conférenciers dans votre école !</h3>
     <p>
       Veci nub jalilah dile mifaloed pehe foevy mad, peji, deb
       cebaheque dujep hiluj se vejevuf. Bima ca dasy, bi, ho podal
@@ -72,7 +72,7 @@ fds_entete("UTC - Fête de la science");
       lique lasibe da. Vuf fal senimeloe voqu boba hilifev defo sele
       tud cad myd fefa li.
       <br/><br/>
-      <a href="/fetedelascience/inscriptFDS" class="btn btn-primary btn-large">Inscriptions aux conférences</a>
+      <a href="/fetedelascience/inscriptFDS" class="btn btn-primary btn-large">Inscription aux conférences</a>
     </p>
   </div>
 </div>
