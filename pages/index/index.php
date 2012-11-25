@@ -23,7 +23,7 @@ fds_entete("UTC - Fête de la science");
       <!-- Image planete -->
       <li class="span4">
         <div class="thumbnail">
-          <a href="/fetedelascience/atelier">
+          <a href="/fetedelascience/ateliers">
             <img src="/fetedelascience/images/planete-fds.png"
             alt="La planète Fête de la science" />
           </a>
@@ -45,34 +45,37 @@ fds_entete("UTC - Fête de la science");
 <div class="row-fluid">
   <div class="span7 well well-large">
     <h3>Qu'est ce que la Fête de la science ?</h3>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ce furi
-    letaque hade dalu minamifile fy bubel do repileni fu. Jol funapa
-    do bique moede mad jame fef boederapom cemyc berequim luda. Tepan
-    ri lujoerel, lecoma, paderequidu debu led memalomame bebepi lidi
-    mapofafepoe cy. Dici, refi pimoet tel belyned lapa mapa fabo lyby
-    dol.
-    <br/><br/>
-    Pely leli bipoedel miv labip bod dela me fefan relajeda joejeba
-    fot lejemalo. Biliquyh cad, rada difane, re dylyl lip, byh
-    baninema mu, mulo cecib def. Fehucoe, disidiv ded labelin dal debi
-    jylimevo dy byvyr la fy la, domi lilitafe, fadytebeta. Dipibe
-    medemu jy mepemi rune lame pomisej vylisyti sylu bod silif
-    bibev. Leji hu ta vyquet telibi suvilitoeme fala bilabesa
-    laqualumoe, vapyl baracylylu tadoefot fy he lylefa.
+    <p>
+    Crée en 1991...
+    <p>
 
+    <h3>Pourquoi une fête de la science ?</h3>
+    <p>
+      Cette manifestation permet de faire rencontrer, sans intermédiaire, la communauté scientifique et le grand public car<br/>
+      - il est indispensable que les scientifiques s'impliquent dans des actions de dissémination des connaissances scientifiques et technologiques.<br/>
+      - il est capital que le public puisse accéder à ces connaissances et être informé de l'actualité de la recherche à l'UTC.<br/>
+      <br/>
+      Participent au programme de la Fête de la Science les
+      chercheurs, les ingénieurs, les partenaires industriels mais
+      aussi les étudiants qui, pour cette manifestation, sont
+      sensibilisés à cette problématique de partage des connaissances
+      et sont formés à la gestion de projets de culture scientifique
+      et technique.
+      <br/>Cette manifestation est gratuite, pour tout public et
+      organisée chaque année. Tous les ans, le programme de la Fête de
+      la Science de l'UTC concerne un public de plus de 10000
+      personnes !
+    </p>
   </div>
   <div class="span5 well well-large">
     <h3>Accueillez des conférenciers dans votre école !</h3>
     <p>
-      Veci nub jalilah dile mifaloed pehe foevy mad, peji, deb
-      cebaheque dujep hiluj se vejevuf. Bima ca dasy, bi, ho podal
-      lel, vaboe dylof bihoma tili lidedefe lale cyloe. Led, di mylile
-      lys torev moenub, loequ qua jibime jaf cumem boe. Joesi ma
-      lileroef hahyb fic valar mar mud sa jifoele, loel quemamone
-      lique lasibe da. Vuf fal senimeloe voqu boba hilifev defo sele
-      tud cad myd fefa li.
+      Du lundi 17 septembre au mercredi 10 octobre 2012. Nos conférenciers se déplacent dans les établissements scolaires (écoles primaires, collèges et lycées de la Région Picardie) pour intervenir sur de nombreux thèmes.<br/>
+      En 2012, plus de ??? classes ont accueilli un conférencier !<br/><br/>
+      Rendez vous en 2013 pour de nouvelles conférences !
       <br/><br/>
-      <a href="/fetedelascience/inscriptFDS" class="btn btn-primary btn-large">Inscription aux conférences</a>
+      <a href="/fetedelascience/conferences" class="btn btn-primary">Liste des conférences</a>
+      <a href="/fetedelascience/inscriptFDS" class="btn btn-inverse disabled">Inscription</a>
     </p>
   </div>
 </div>
