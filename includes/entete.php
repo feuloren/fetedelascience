@@ -8,7 +8,7 @@
     <meta name="description" lang="fr" content="Découvrez la fête de
     la science à l'UTC; Inscription en ligne pour les écoles, collèges
     et lycées." />
-    <link href="/fetedelascience/style/bootstrap.min.css" rel="stylesheet">
+    <link href="/fetedelascience/style/custom-bootstrap.css" rel="stylesheet">
     <link href="/fetedelascience/style/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="/fetedelascience/style/fds.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/fetedelascience/images/favicon.png"/>
@@ -20,9 +20,8 @@
         <div class="span2">
           <a href="http://www.fetedelascience.fr/" title="Site officiel de la Fête de la science"><img src="/fetedelascience/images/logo150.png" alt="logoFDS"/></a>
         </div>
-        <div class="span8 fds-grandtitre">
-          <h1><a href="/fetedelascience">Fête de la science</a></h1><br/>
-              <span>Du 10 au 14 octobre 2012</span>
+        <div class="span8">
+          <img src="/fetedelascience/images/grand_titre.png" alt="Fête de la science - Du 10 au 14 octobre 2012"/>
         </div>
         <div class="span2 hidden-phone">
           <a href="http://www.utc.fr" title="Site internet de l'UTC"><img class="vertical-align" src="/fetedelascience/images/logo_utc.png" alt="logo_utc"/></a>

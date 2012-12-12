@@ -1,12 +1,12 @@
 .fds-header
 {
-    background-image: url(/fetedelascience/images/header.png) ;
+    //background-image: url(/fetedelascience/images/header.png) ;
     background-repeat : repeat-x repeat-y;
     text-align: center;
 }
 .fds-footer
 {
-  background-color : rgb(245, 245, 245);
+  //background-color : rgb(245, 245, 245);
 }
 .fds-grandtitre h1
 {
@@ -38,4 +38,12 @@
 }
 .fds-404 {
     text-align: center;
+}
+.container-fluid {
+    background: url('../images/header.png');
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.well {
+    background-color: rgba(245, 245, 245, 0.8);
 }

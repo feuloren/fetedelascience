@@ -12,7 +12,7 @@ fds_entete("UTC - Fête de la science");
     <ul class="thumbnails">
       <!-- Grosse photo -->
       <li class="span4">
-        <div class="thumbnail">
+        <div class="thumbnail well">
           <a href="/fetedelascience/photos">
             <img src="/fetedelascience/images/photo-accueil.jpg" alt="Le Hall de Pierre Guillaumat pendant la fête
             de la science" />
@@ -22,7 +22,7 @@ fds_entete("UTC - Fête de la science");
       </li>
       <!-- Image planete -->
       <li class="span4">
-        <div class="thumbnail">
+        <div class="thumbnail well">
           <a href="/fetedelascience/ateliers">
             <img src="/fetedelascience/images/planete-fds.png"
             alt="La planète Fête de la science" />
@@ -32,7 +32,7 @@ fds_entete("UTC - Fête de la science");
       </li>
       <!-- Archives -->
       <li class="span4">
-        <div class="thumbnail">
+        <div class="thumbnail well">
           <a href="/fetedelascience/archives">
             <img src="/fetedelascience/images/hall-pg2.jpg" alt="Le Hall de Pierre Guillaumat pendant la fête de la science"/>
           </a>
