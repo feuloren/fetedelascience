@@ -47,3 +47,21 @@
 .well {
     background-color: rgba(245, 245, 245, 0.8);
 }
+
+.thumbnail {
+    text-align: center;
+}
+
+.thumbnail a:hover {
+    text-decoration: none;
+}
+
+.navbar .nav > li > a { /* on agrandit les labels du menu*/
+    font-size: 1.3em;
+    color: #a1a1a1;
+    font-weight: 500;
+}
+
+.navbar .nav > li:hover {
+    background-color: #303030; 
+}
