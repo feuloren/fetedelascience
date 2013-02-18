@@ -44,10 +44,9 @@ fds_entete("Photos 2004");
           echo '
       <li>
         <div class="thumbnail">
-          <a rel="gallery" href="/fetedelascience/images/photos2004/'. $name  .'" title="">
+          <a rel="gallery" href="/fetedelascience/images/photos2004/'. $name  .'" title="'.$desc.'">
             <img src="/fetedelascience/images/photos2004/min/'. $name  .'" alt="'. $name .'"/>
           </a>
-          <p>'. $desc .'</p>
         </div>
       </li>';
        } ?>
