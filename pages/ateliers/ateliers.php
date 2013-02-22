@@ -9,36 +9,32 @@ require_once('aux.php');
 $req = db_query("SELECT * FROM ateliers12");
 
 $nav = '';
-$body = '';
 
 while($data = $req->fetch_assoc()) {
-  $nav .= '<li><a href="#'. $data['ref_at'] .'">'. $data['titre'] .'</a></li>';
-  $body .= '<section id="'. $data['ref_at'] .'" class="well
-                                                         well-small">
-  <div class="row-fluid">
-    <div class="span9">
-      <h3 style="display:inline;"><a href="/fetedelascience/ateliers/detail?id='. $data['ref_at'] .'">'. $data['titre'].'</a></h3>
-    </div>
-    <div class="span3">
-      <span class="pull-right"><a href="#">Retour en haut <i class="icon
-      icon-arrow-up"></i></a></span>
-    </div>
-  </div>
-  ' . display_resps($data) . '<br/><br/>
-  '. fds_parse_texte($data['sujet']) .'</section>';
+  $nav .= '<li><a href="/fetedelascience/ateliers/detail?id='. $data['ref_at'] .'">'. $data['titre'] .'</a></li>';
 }
 
 fds_entete("Village des sciences 2012");
 ?>
 
 <div class="row-fluid">
-  <div class="span4">
+  <div clas="span12">
     <div class="well">
-      <ul class="nav nav-list" id="listeconfs">
+        <h3>Le village des sciences</h3>
+        <p>Du 10 au 14 octobre au centre Pierre Guillaumat...<br/>
+        La semaine sera consacrée aux scolaires, pensez à vous inscrire.<br/>
+        Accès libre pour tous le week-end.</p>
+    </div>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="well">
+      <ul class="nav nav-list fds-list" id="listeconfs">
         <li class="nav-header">Liste des ateliers</li>
         <?php echo $nav; ?>
         <li class="divider"></li>
-        <li><a href="/fetedelascience/inscriptFDS" class="btn btn-success">Inscription</a></li>
+        <li class="fds-li-btn"><a href="/fetedelascience/inscriptFDS" class="btn btn-success">Inscription</a></li>
       </ul>
     </div> <!-- /well -->
   </div>
