@@ -39,6 +39,7 @@
             <li><a href="/fetedelascience/archives">Archives</a></li>
             <li><a href="/fetedelascience/comite">Comité</a></li>
             <li><a href="/fetedelascience/partenaires">Partenaires</a></li>
+            <li><a href="/fetedelascience/contact">Contact</a></li>
           </ul>
           <div class="nav pull-right hidden-phone">
             <a href="/fetedelascience/inscriptFDS" class="btn btn-success">Inscription</a>
