@@ -1,16 +1,12 @@
 <?php
+$subject = $_POST["title"];
+$message = $_POST["comments"];
+$nom = $_POST["realname"];
+$email = $_POST["email"];
 $TO = "matgrillere@gmail.com";
+$header = "From: $nom <$email>" . "/r/n";
 
-$h  = "From: " . $TO;
-
-$message = "";
-
-while (list($key, $val) = each($HTTP_POST_VARS)) {
-  $message .= "$key : $val\n";
-}
-
-mail($TO, $subject, $message, $h);
+mail($TO, $subject, $message, $header);
 
 Header("Location: /fetedelascience/contact/merci");
-
 ?>
