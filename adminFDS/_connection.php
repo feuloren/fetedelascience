@@ -170,10 +170,11 @@ require_once 'auth.php';
 $pages = array("actus" => "Actualités",
                "conferences" => "Conférences",
                "ateliers" => "Ateliers",
-               "acteurs" => "Acteurs");
+               "acteurs" => "Acteurs",
+               "intervenants" => "Intervenants");
 $actions = array("ajouter", "supprimer", "modifier");
 //$adminLogin = "a";
-$adminPages = array("index", "conferences", "ateliers", "actus"); //debug
+$adminPages = array("index", "conferences", "ateliers", "actus", "intervenants"); //debug
 $adminBranches = array("GI", "ASSO", "GB", "GM", "UTC", "TSH", "GSU", "GSM", "CSTI", "GP", "ESCOM"); //debug
 
 ?>

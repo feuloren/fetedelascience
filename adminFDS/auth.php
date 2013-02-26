@@ -2,7 +2,7 @@
 require_once '_xml_parser.php';
 
 define("CAS_URL", "http://cas.utc.fr/cas");
-define("FDS_URL", "http://localhost/fetedelascience/adminFDS");
+define("FDS_URL", "http://localhost/fetedelascience/adminFDS/index.php");
 $adminLogin = "";
 //$adminPages = array();
 //$adminBranches = array();
