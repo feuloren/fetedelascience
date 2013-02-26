@@ -31,7 +31,7 @@ fds_entete("Conférences 2012");
         <li class="nav-header">Liste des conférences</li>
         <?php echo $nav; ?>
         <li class="divider"></li>
-        <li><a href="/fetedelascience/inscriptFDS" class="btn btn-success">Inscription</a></li>
+        <li><a href="/fetedelascience/inscription/conference" class="btn btn-success">Inscription aux conférences</a></li>
       </ul>
     </div> <!-- /well -->
   </div>

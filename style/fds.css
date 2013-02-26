@@ -84,3 +84,21 @@
 .fds-list .fds-li-btn {
     list-style-image: none;
 }
+.petiteicone
+{
+    width: 390px;
+    height: 410px;
+    float: left;
+    text-align: center;
+    border: 1px solid #444444;
+    margin-left: 2px;
+    border-radius: 5px;
+    padding-top: 6px;
+    margin-bottom: 30px;
+}
+.petiteicone:hover
+{
+    background-color: #ffffff;
+}
+
+
