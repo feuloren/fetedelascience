@@ -10,32 +10,17 @@
           </div>
         <div class="row-fluid">
           <div class="span2 offset1">
-            <img src="/fetedelascience/images/bas/logo_utc.png" alt="logo_utc">
+            <a href="http://www.utc.fr/" title="Site officiel de l'UTC"><img src="/fetedelascience/images/bas/logo_utc.png" alt="logo_utc"></a>
           </div>
           <div class="span1 offset1">
-            <img src="/fetedelascience/images/bas/picardie.jpg" alt="logo_picardie">
+            <a href="http://www.picardie.fr/" title="Site de la Picardie"><img src="/fetedelascience/images/bas/picardie.jpg" alt="logo_picardie"></a>
           </div>
-          <!-- <div class="span1">
-            <img src="/fetedelascience/images/bas/escom.png" alt="logo_escom">
-          </div>
-          <div class="span1">
-            <img src="/fetedelascience/images/bas/logo_amiens.png" alt="logo_amiens">
-          </div> -->
           <div class="span1 offset1">
-            <img src="/fetedelascience/images/bas/logo_arc_compiegne.png" alt="logo_arc_compiegne">
+            <a href="http://www.agglo-compiegne.fr/L-Agglomeration.aspx" title="Site de compiègne et son agglomération"><img src="/fetedelascience/images/bas/logo_arc_compiegne.png" alt="logo_arc_compiegne"></a>
           </div>
-          <!-- <div class="span1">
-            <img src="/fetedelascience/images/bas/logo_compiegne.png" alt="logo_compiegne">
-          </div> -->
           <div class="span2 offset1">
-            <img src="/fetedelascience/images/bas/ombelliscience.png" alt="logo_ombelliscience">
+            <a href="http://www.ombelliscience-picardie.fr/index.php/contact" title="Site de ombelliscience"><img src="/fetedelascience/images/bas/ombelliscience.png" alt="logo_ombelliscience"></a>
           </div>
-          <!-- <div class="span1">
-            <img src="/fetedelascience/images/bas/jeanlegendre.jpg" alt="logo_jeanlegendre">
-          </div>
-          <div class="span1">
-            <img src="/fetedelascience/images/bas/recherche.png" alt="logo_recherche">
-          </div> -->
         </div>
         </div>
       </div>
