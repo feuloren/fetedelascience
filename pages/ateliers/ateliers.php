@@ -18,7 +18,7 @@ fds_entete("Village des sciences 2012");
 ?>
 
 <div class="row-fluid">
-  <div clas="span12">
+  <div class="span12">
     <div class="well">
         <h3>Le village des sciences</h3>
         <p>Du 10 au 14 octobre au centre Pierre Guillaumat...<br/>
@@ -31,10 +31,10 @@ fds_entete("Village des sciences 2012");
   <div class="span12">
     <div class="well">
       <ul class="nav nav-list fds-list" id="listeconfs">
+				<li class="fds-li-btn"><a href="/fetedelascience/inscription/village" class="btn btn-success">Inscription au Village</a></li>
+				<li class="divider"></li>
         <li class="nav-header">Liste des ateliers</li>
         <?php echo $nav; ?>
-        <li class="divider"></li>
-        <li class="fds-li-btn"><a href="/fetedelascience/inscription/village" class="btn btn-success">Inscription aux ateliers</a></li>
       </ul>
     </div> <!-- /well -->
   </div>
