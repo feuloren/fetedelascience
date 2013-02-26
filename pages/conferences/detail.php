@@ -45,10 +45,10 @@ require_once('aux.php');
   <div class="span12 well well-small">
     <p>Responsables : <?php echo display_acteurs($data); ?></p>
     <p>
-      <?php echo fds_parse_texte($data['sujet']); ?>
+      <?php echo fds_parse_texte($data['resume']); ?>
     </p>
     <p>
-      Matériel à prévoir : <?php echo display_materiel($data); ?>
+			<?php echo display_materiel($data); ?>
     </p>
   </div>
 </div>
