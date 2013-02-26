@@ -12,9 +12,8 @@ fds_entete("Contact");
 					<td><input type=text name=email size=30></td></tr>
 					<tr><td>Sujet:</td>
 					<td><input type=text name=title size=30></td></tr>
-					<tr><td colspan=2>Votre message: <textarea COLS=50 ROWS=6 name=comments></textarea>
-					</td>
-					</tr>
+					<tr><td>Votre message:</td>
+					<td><textarea COLS=50 ROWS=6 name=comments></textarea></td></tr>
 				</table>
 				<br> 
 				<input type=submit value=Envoyer> -
