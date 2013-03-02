@@ -74,7 +74,7 @@ function fds_entete($titre) {
   require('includes/entete.php');
 }
 
-function fds_basdepage() {
+function fds_basdepage($scripts) {
   global $additional_scripts;
   require('includes/basdepage.php');
 }
