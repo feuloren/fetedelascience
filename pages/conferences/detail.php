@@ -45,7 +45,7 @@ require_once('aux.php');
   <div class="span12 well well-small">
     <p>Responsables : <?php echo display_acteurs($data); ?></p>
     <p>
-      <?php echo fds_parse_texte($data['resume']); ?>
+      <?php echo fds_parse_texte(stripslashes($data['resume'])); ?>
     </p>
     <p>
 			<?php echo display_materiel($data); ?>

@@ -27,11 +27,11 @@ fds_entete("Conférences 2012");
 <div class="row-fluid">
   <div class="span12">
     <div class="well">
-      <ul class="nav nav-list" id="listeconfs">
-				<li><a href="/fetedelascience/inscription/conference" class="btn btn-success">Inscription aux conférences</a></li>
+      <ul class="nav nav-list fds-list" id="listeconfs">
+				<li class="fds-li-btn"><a href="/fetedelascience/inscription/conference" class="btn btn-success">Inscription aux conférences</a></li>
 				<li class="divider"></li>
         <li class="nav-header">Liste des conférences</li>
-        <?php echo $nav; ?>
+        <?php echo stripslashes($nav); ?>
       </ul>
     </div> <!-- /well -->
   </div>
