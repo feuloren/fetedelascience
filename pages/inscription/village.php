@@ -1,5 +1,5 @@
 <?php
-fds_entete("Contact");
+fds_entete("Inscription au Village");
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">
@@ -64,6 +64,36 @@ fds_entete("Contact");
 						</div>
 						<div class="span3">
 							E-mail: <input type=text name=ac1mail size=50>
+						</div>
+					</div>
+					<p>
+						Information complémentaire :
+					</p>
+					<table>
+						<tr>
+							<td>Niveau: </td>
+							<td><input type=text name=niveau size=50></td>
+						</tr>
+						<tr>
+							<td>Nombre d'élèves:</td> 
+							<td><input type=text name=nombre size=50></td>
+						</tr>
+					</table>
+					<div class="row-fluid">
+						<div class="span4">
+							Jour de la visite:
+								<select name="jour">
+									<option value="Jour1" > Jour 1</option>
+									<option value="Jour2" > Jour 2</option>
+									<option value="Jour3" > Jour 3</option>
+									<option value="Jour4" > Jour 4</option>
+								</select>
+						</div>
+						<div class="span4">
+							Heure d'arrivée: <input type=text name=nombre size=50>
+						</div>
+						<div class="span4">
+							Heure départ: <input type=text name=nombre size=50>
 						</div>
 					</div>
 				<input type=submit value=Envoyer> -
