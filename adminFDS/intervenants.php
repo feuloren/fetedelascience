@@ -19,6 +19,25 @@ else if ($num === 1)
 else
   $center = $num . " intervenants enregistrés";
 
+$jours = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
+$mois = array("", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre");
+
+function get_disponibilites($id) {
+  global $jours, $mois;
+  $req = tx_query("SELECT * FROM disponibilites13 WHERE intervenant = $id ORDER BY jour");
+  $dispos = "<br/>"; 
+  $dispos .= "<span class='add-dispo' ref='$id'><i class='icon-plus'></i> Ajouter une disponibilité</span>";
+  $dispos .= "<br/><br/>"; 
+  while ($data = mysql_fetch_assoc($req)) {
+    $date_ = strtotime($data['jour']);
+    $nom_jour = $jours[date('w', $date_)];
+    $nom_mois = $mois[date('n', $date_)];
+    $dispos .= $nom_jour . ' ' . date('j', $date_) . ' ' . $nom_mois . ' ' . $data['periode'];
+    $dispos .= " <i rel='tooltip' data-original-title='Supprimer cette disponibilité' class='icon-remove remove' ref-int='$id' ref-dispo='". $data["id"] ."'></i><br/>\n";
+  }
+  return $dispos;
+}
+
 function echo_table_body() {
   global $req;
 
@@ -27,7 +46,7 @@ function echo_table_body() {
 
     $contenu = array('Mail'           => $data['mail'],
                      'Téléphone'      => $data['telephone'],
-                     'Disponibilités' => '');
+                     'Disponibilités' => get_disponibilites($ref));
     $messages = array('collapse' => 'Voir les détails de cet intervenant',
                       'edit' => 'Modifier cet intervenant',
                       'remove' => 'Supprimer cet intervenant');
@@ -38,6 +57,9 @@ function echo_table_body() {
 function echo_script() {
   echo "
   $(function() {
+$('.add-dispo').click(function() {
+    alert($(this).attr('ref'));
+});
 
 function htmlDecode(value) {
     if (value) {
@@ -54,6 +76,7 @@ register_click('.edit', function(ref) {
            $.modification = true;
 
            $('#modalAdd').modal('show');
+           $('#refInt').val(result.id);
            $('#nomInt').val(result.nom);
            $('#prenomInt').val(result.prenom);
            $('#telephoneInt').val(result.telephone);
@@ -65,22 +88,26 @@ register_click('.edit', function(ref) {
   set_ref = function() {
       if ($.modification) return;
 
-      var branche = $('#brancheAt').val()
-      $.post('_actions.php', {'page': page_actuelle, 'action': 'generer-ref', 'branche': branche},
+      $.post('_actions.php', {'page': page_actuelle, 'action': 'generer-ref'},
              function(text) {
                  if (text != '') {
-                     $('#refAt').val(text);
+                     $('#refInt').val(text);
                  }
               });
   };
   set_ref();
-  $('#brancheAt').change(set_ref);
 });";
 }
 
 function echo_add_form() {
   echo <<<FORM
   <fieldset>
+     <div class="control-group">
+      <label class="control-label" for="refInt">Référence</label>
+      <div class="controls">
+        <input type="input-medium" class="input-xlarge" id="refInt" name="ref"/>
+      </div>
+    </div>
    <div class="control-group">
       <label class="control-label" for="nomInt">Nom</label>
       <div class="controls">

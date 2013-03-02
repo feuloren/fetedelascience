@@ -1,9 +1,9 @@
 <?php
 
 function parse_post_data() {
-  $ref = 0;//$_POST['id'];
-  $data = array('id' => $ref);
-  if (verif_ref($ref)) {
+  $ref = intval($_POST['ref']);
+  $data = array('ref' => $ref);
+  if ($ref > 0) {
     $data['telephone'] = mysqlSecureText($_POST['telephone']);
     $data['nom']       = mysqlSecureText($_POST['nom']);
     $data['prenom']    = mysqlSecureText($_POST['prenom']);
@@ -27,6 +27,11 @@ case 'supprimer':
   }
 
   break;
+case 'generer-ref':
+  $req = tx_query("SELECT MAX(id) FROM `intervenants13`");
+  $data = mysql_fetch_array($req);
+  echo $data[0] + 1;
+  break;
 case 'pre-modif':
   $ref = intval($_POST['ref']);
   if ($ref > 0) {
@@ -39,12 +44,17 @@ case 'ajouter': // ou modifier c'est pareil
   $data = parse_post_data();
   // faire un replace into au lieu de insert
   if ($data) {
-    $chaine = "REPLACE `ateliers13`
+    $chaine = "REPLACE `intervenants13`
               (`id`, `nom`, `prenom`, `telephone`, `mail`)
-              VALUES (".$data['id'].", '".$data['nom']."', ".$data['prenom'].", ".$data['telephone'].",
+              VALUES (".$data['ref'].", '".$data['nom']."', '".$data['prenom']."', '".$data['telephone']."',
                       '".$data['mail']."')";
+var_dump($chaine);
     tx_query($chaine);
   }
+  break;
+case 'supprimer-dispo':
+  break;
+case 'ajouter-dispo':
   break;
 case 'export-excel':
   require 'phpexcel/Classes/PHPExcel.php';

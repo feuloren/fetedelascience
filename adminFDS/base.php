@@ -59,6 +59,7 @@ function create_row($ref, $title, $content, $messages) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Fête de la science - interface d'administration</title>
     <link href="/fetedelascience/style/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/fetedelascience/style/admin.css" rel="stylesheet" type="text/css" />
     <style>
       body {
         padding-top: 40px;
