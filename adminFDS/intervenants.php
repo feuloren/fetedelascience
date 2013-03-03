@@ -33,7 +33,7 @@ function get_disponibilites($id) {
     $nom_jour = $jours[date('w', $date_)];
     $nom_mois = $mois[date('n', $date_)];
     $dispos .= $nom_jour . ' ' . date('j', $date_) . ' ' . $nom_mois . ' ' . $data['periode'];
-    $dispos .= " <i rel='tooltip' data-original-title='Supprimer cette disponibilité' class='icon-remove remove' ref-int='$id' ref-dispo='". $data["id"] ."'></i><br/>\n";
+    $dispos .= " <i rel='tooltip' data-original-title='Supprimer cette disponibilité' class='icon-remove dispo-remove' ref='". $data["id"] ."'></i><br/>\n";
   }
   return $dispos;
 }
@@ -57,8 +57,13 @@ function echo_table_body() {
 function echo_script() {
   echo "
   $(function() {
-$('.add-dispo').click(function() {
-    alert($(this).attr('ref'));
+register_click('.add-dispo', function(ref) {
+    $('#refInt').val(ref);
+    $('#action').val('ajouter-dispo');
+    $('#formIntervenant').hide();
+    $('#formDispo').show();
+
+    $('#modalAdd').modal('show');
 });
 
 function htmlDecode(value) {
@@ -75,6 +80,9 @@ register_click('.edit', function(ref) {
            var result = $.parseJSON(text);
            $.modification = true;
 
+           $('#formIntervenant').show();
+           $('#formDispo').hide();
+
            $('#modalAdd').modal('show');
            $('#refInt').val(result.id);
            $('#nomInt').val(result.nom);
@@ -83,7 +91,19 @@ register_click('.edit', function(ref) {
            $('#mailInt').val(result.mail);
          });
   });
-  $('.btn').button();
+
+register_click('.dispo-remove', function(ref) {
+    $.post(\"_actions.php\", {'page': page_actuelle, 'action': 'supprimer-dispo', 'ref': ref},
+         function(text) {
+            if (text == '') {
+               document.location.reload(); 
+            } else {
+                alert(text);
+            }
+         });
+});
+
+  $('#dateDispo').datepicker({format : 'yyyy-mm-dd'});
   var modification = false;
   set_ref = function() {
       if ($.modification) return;
@@ -97,11 +117,12 @@ register_click('.edit', function(ref) {
   };
   set_ref();
 });";
+
 }
 
 function echo_add_form() {
   echo <<<FORM
-  <fieldset>
+  <fieldset id="formIntervenant">
      <div class="control-group">
       <label class="control-label" for="refInt">Référence</label>
       <div class="controls">
@@ -132,6 +153,24 @@ function echo_add_form() {
         <input type="text"class="input-xlarge" id="mailInt" name="mail"/>
       </div>
     </div>
+  </fieldset>
+  <fielset id="formDispo" style="display:none;">
+     <div class="control-group">
+      <label class="control-label" for="dateDispo">Date</label>
+      <div class="controls">
+        <input type="input-medium" class="input-xlarge" id="dateDispo" name="date"/>
+      </div>
+    </div>
+   <div class="control-group">
+      <label class="control-label" for="periodeDispo">Période</label>
+      <div class="controls">
+        <select class="input-xlarge" id="periodeDispo" name="periode">
+          <option value="matin">Matin</option>
+          <option value="aprem">Après-Midi</option>
+        </select>
+      </div>
+    </div>
+
   </fieldset>
 FORM;
 }

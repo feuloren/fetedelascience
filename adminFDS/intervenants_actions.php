@@ -53,8 +53,28 @@ var_dump($chaine);
   }
   break;
 case 'supprimer-dispo':
+  $ref = intval($_POST['ref']);
+  if ($ref <= 0)
+    die("Identifiant incorrect");
+  else
+    tx_query("DELETE FROM disponibilites13 WHERE id = $ref");
   break;
 case 'ajouter-dispo':
+  $ref = intval($_POST['ref']);
+  if ($ref <= 0) {
+    die("Identifiant incorrect");
+  }
+  $date = $_POST['date'];
+  if (!preg_match("/\d{4}-\d\d-\d\d/", $date)) {
+    die("Format de date incorrect");
+  }
+  $periode = $_POST['periode'];
+  if (!in_array($periode, array('matin', 'aprem'))) {
+    die("Période incorrecte ('matin' ou 'aprem')");
+  }
+  tx_query("INSERT INTO `disponibilites13` (`jour`, `periode`, `intervenant`) VALUES
+            ('$date', '$periode', $ref)");
+  header("Location: $page.php");
   break;
 case 'export-excel':
   require 'phpexcel/Classes/PHPExcel.php';
