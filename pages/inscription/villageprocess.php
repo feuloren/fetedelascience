@@ -1,16 +1,25 @@
 <?php
-// Récupération des données sur les établissements
-$etablissement = $_POST["etablissement"];
-$rue = $_POST["rue"];
-$cp = $_POST["cp"];
-$ville = $_POST["ville"];
-$email = $_POST["email"];
-$fax = $_POST["fax"];
-$telephone = $_POST["telephone"];
+fds_entete("Inscription engeristée");
 
-//Insertion d'un établissment dans la base au cas ou il n'existe pas
-db_query("INSERT INTO `etablissements13`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`) VALUES ('%s','%s','%s','%s','%s','%s')", $etablissement, $telephone, $email, $rue, $cp, $ville);
-$idetab = mysql_insert_id();
+//Récupération de l'id de l'établissement
+$id_etablissement = $_POST["id_etablissement"];
+
+//Ajout de l'etablissement si besoin
+if ('-1' == $id_etablissement) {
+	
+	// Récupération des données sur les établissements
+	$etablissement = $_POST["etablissement"];
+	$rue = $_POST["rue"];
+	$cp = $_POST["cp"];
+	$ville = $_POST["ville"];
+	$email = $_POST["email"];
+	$fax = $_POST["fax"];
+	$telephone = $_POST["telephone"];
+
+	//Insertion d'un établissment dans la base au cas ou il n'existe pas
+	db_query("INSERT INTO `etablissements13`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`) VALUES ('%s','%s','%s','%s','%s','%s')", $etablissement, $telephone, $email, $rue, $cp, $ville);
+	$id_etablissement = mysqli_insert_id($mysql_conn);
+}
 
 //Récupération des infos de l'inscription (jour, heure, etc)
 $niveau = $_POST["niveau"];
@@ -20,28 +29,41 @@ $heurearrive = $_POST["heurearrive"];
 $heuredepart = $_POST["heuredepart"];
 
 ////Insertion d'une inscription au village
-db_query("INSERT INTO `village13`(`idetab`, `niveau`, `nombre`, `date`, `heurearrive`, `heuredepart`) VALUES ('%s','%s','%s','%s','%s','%s')", $idetab, $niveau, $nombre, 2001-01-01, 00:00:00, 00:00:00);
-$idresa = mysql_insert_id();
+db_query("INSERT INTO `village13`(`idetab`, `niveau`, `nombre`, `date`, `heurearrive`, `heuredepart`) VALUES ('%s','%s','%s','%s','%s','%s')", $id_etablissement, $niveau, $nombre, $jour, $heurearrive, $heuredepart);
+$idresa = mysqli_insert_id($mysql_conn);
 
-for ($i = 0; $i <= 3; $i++) {
+
+for ($i = 0; $i <= 1; $i++) {
 	
 	//Récupération accompagnateur
 	$acnom = $_POST["ac".$i."nom"];
 	$acprenom = $_POST["ac".$i."prenom"];
-	$actelephone = $_POST["ac".$i."prenom"];
-	$acmail = $_POST["ac".$i."prenom"];
+	$actelephone = $_POST["ac".$i."telephone"];
+	$acmail = $_POST["ac".$i."mail"];
 	
 	//Insertion d'un accompagnateur
 	db_query("INSERT INTO `accompagnateurs13`(`nom`, `prenom`, `mail`, `tel`) VALUES ('%s','%s','%s','%s')", $acnom, $acprenom, $actelephone, $acmail);
-	$idacc = mysql_insert_id();
+	$idacc = mysqli_insert_id($mysql_conn);
 	
 	//Insertion accompagnateur et reservation dans la table de jointure
 	db_query("INSERT INTO `visite_acc`(`idresa`, `idaccompagnateur`) VALUES ('%s','%s')", $idresa, $idacc);
 	
 }
+?>
+<div class="row-fluid">
+  <div class="span12 well well-large">
+    <p>
+			L'inscription de votre établissment a la fête de la science a bien été pris en compte.
+			Merci de votre Inscription.
+		</p>
+		<span class="pull-right">
+			<a href="/fetedelascience/" class="btn btn-primary">
+        <i class="icon icon-arrow-left icon-white"></i> Retour à l'accueil
+			</a>
+		</span>
+	</div>
+</div>
 
-	
-	
-
-//Header("Location: /fetedelascience/");
+<?php
+fds_basdepage();
 ?>

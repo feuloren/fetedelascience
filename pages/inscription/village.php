@@ -5,7 +5,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">
-		<form method=POST action= inscription/villageprocess >
+		<form method=POST action= villageprocess >
                 <h2>Informations sur l'établissement</h2>
                     Établissement: 
                     <select name="id_etablissement" id="etablissement">
@@ -57,10 +57,10 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 						<div class="span4">
 							Jour de la visite:
 								<select name=jour>
-									<option value="Jour1" > Jour 1</option>
-									<option value="Jour2" > Jour 2</option>
-									<option value="Jour3" > Jour 3</option>
-									<option value="Jour4" > Jour 4</option>
+									<option value="2013-10-10" > Jeudi 10 Octobre 2013</option>
+									<option value="2013-10-11" > Vendredi 11 Octobre 2013</option>
+									<option value="2013-10-12" > Samedi 12 Octobre 2013</option>
+									<option value="2013-10-13" > Dimanche 13 Octobre 2013</option>
 								</select>
 						</div>
 						<div class="span4">
