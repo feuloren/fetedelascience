@@ -56,7 +56,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 					<div class="row-fluid">
 						<div class="span4">
 							Jour de la visite:
-								<select name="jour">
+								<select name=jour>
 									<option value="Jour1" > Jour 1</option>
 									<option value="Jour2" > Jour 2</option>
 									<option value="Jour3" > Jour 3</option>
@@ -64,10 +64,10 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 								</select>
 						</div>
 						<div class="span4">
-							Heure d'arrivée: <input type=text name=nombre size=50>
+							Heure d'arrivée: <input type=text name=heurearrive size=50>
 						</div>
 						<div class="span4">
-							Heure départ: <input type=text name=nombre size=50>
+							Heure départ: <input type=text name=heuredepart size=50>
 						</div>
 					</div>
                 <br/><br/>
