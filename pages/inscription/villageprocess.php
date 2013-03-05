@@ -1,5 +1,5 @@
 <?php
-fds_entete("Inscription engeristée");
+fds_entete("Inscription enregistrée");
 
 //Récupération de l'id de l'établissement
 $id_etablissement = $_POST["id_etablissement"];
@@ -27,13 +27,13 @@ $nombre = $_POST["nombre"];
 $jour = $_POST["jour"];
 $heurearrive = $_POST["heurearrive"];
 $heuredepart = $_POST["heuredepart"];
+$nb_acc = $_POST["nb_acc"];
 
 ////Insertion d'une inscription au village
 db_query("INSERT INTO `village13`(`idetab`, `niveau`, `nombre`, `date`, `heurearrive`, `heuredepart`) VALUES ('%s','%s','%s','%s','%s','%s')", $id_etablissement, $niveau, $nombre, $jour, $heurearrive, $heuredepart);
 $idresa = mysqli_insert_id($mysql_conn);
 
-
-for ($i = 0; $i <= 1; $i++) {
+for ($i = 0; $i < $nb_acc; $i++) {
 	
 	//Récupération accompagnateur
 	$acnom = $_POST["ac".$i."nom"];

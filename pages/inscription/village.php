@@ -1,4 +1,5 @@
 <?php
+add_header('<link href="/fetedelascience/style/bootstrap-timepicker.min.css" rel="stylesheet"/>');
 fds_entete("Inscription au Village");
 
 $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
@@ -10,7 +11,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
                     Établissement: 
                     <select name="id_etablissement" id="etablissement">
                             <option value="-1">- Ajouter un établissement -</option>
-                            <option>- - - - -</option>
+                            <option selected="selected">Choisissez dans la liste</option>
                             <?php
                                 while($data = $etablissements->fetch_assoc()) {
                                     echo "<option value=\"" . $data["id"] . "\">" . $data["nom"] . " - " . $data["ville"] . "</option>";
@@ -64,13 +65,22 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 								</select>
 						</div>
 						<div class="span4">
-							Heure d'arrivée: <input type=text name=heurearrive size=50>
+							Heure d'arrivée:  
+							 <div class="input-append bootstrap-timepicker">
+								<input id="timepicker1" type="text" class="input-small" name=heurearrive>
+									<span class="add-on"><i class="icon-time"></i></span>
+							</div>
 						</div>
 						<div class="span4">
-							Heure départ: <input type=text name=heuredepart size=50>
+							Heure départ: 
+							<div class="input-append bootstrap-timepicker">
+								<input id="timepicker2" type="text" class="input-small" name=heuredepart>
+									<span class="add-on"><i class="icon-time"></i></span>
+							</div>
 						</div>
 					</div>
                 <br/><br/>
+        <input id="nb_acc" type="hidden" name="nb_acc" value="0">
 				<input type=submit value=Envoyer class="btn btn-success btn-large"> 
 				<input type=reset value=Annuler class="btn btn-danger btn-large">
             </form>
@@ -79,8 +89,8 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 
 <?php
 $script = <<<'SCRIPT'
-    var nb_intervenants = 0;
     var add_intervenant = function() {
+			var nb_intervenants = parseInt($('#nb_acc').val());
         var txt = '<div class="row-fluid">'+
                   '<div class="span3">'+
                   'Nom: <input type=text name=ac'+nb_intervenants+'nom size=50>'+
@@ -96,7 +106,7 @@ $script = <<<'SCRIPT'
                   '</div>'+
                   '</div>';
         $("#listeIntervenants").append(txt);
-        nb_intervenants += 1;
+        $('#nb_acc').val(nb_intervenants + 1);
     }
     $(function() {
         $("#btnAddIntervenant").click(add_intervenant);
@@ -108,8 +118,23 @@ $script = <<<'SCRIPT'
             else
                 $("#newEtab").hide();
         });
+        $('#timepicker1').timepicker({minuteStep: 15,
+				template: 'dropdown',
+				showSeconds: false,
+				showMeridian: false,
+				defaultTime: '08:00 AM',
+				});
+				$('#timepicker2').timepicker({minuteStep: 15,
+				template: 'dropdown',
+				showSeconds: false,
+				showMeridian: false,
+				defaultTime: '13:00 PM',
+				});
     });
 SCRIPT;
+
+$timepicker = "bootstrap-timepicker.min.js";
+include_script($timepicker);
 
 fds_basdepage($script);
 ?>
