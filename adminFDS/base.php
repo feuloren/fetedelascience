@@ -60,6 +60,7 @@ function create_row($ref, $title, $content, $messages) {
     <title>Fête de la science - interface d'administration</title>
     <link href="/fetedelascience/style/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/fetedelascience/style/admin.css" rel="stylesheet" type="text/css" />
+    <link href="/fetedelascience/style/datepicker.css" rel="stylesheet" type="text/css" />
     <style>
       body {
         padding-top: 40px;
