@@ -83,7 +83,13 @@ $script = <<<'SCRIPT'
                     success : function(data) {
                         $('#div-choix-date').show();
                         data.forEach(function(truc) {
-                            $('#liste-dispos').append('<option value="'+truc.id+'">'+truc.jour+' '+truc.periode+'</option>');
+                            var text = '<option value="'+truc.id+'"';
+                            if (truc.res_id != null)
+                                text += ' disabled="disabled">Reservé - ';
+                            else
+                                text += '>';
+                            text += ''+truc.jour+' '+truc.periode+'</option>';
+                            $('#liste-dispos').append(text);
                         });
                     }});
         });
