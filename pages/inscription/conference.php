@@ -11,15 +11,17 @@ $conferences = db_query("SELECT c.id, i.id AS id_int, c.titre, i.nom, i.prenom
   <div class="span12 well well-large">
 		<form method="POST" action="conferenceprocess">
                 <h2>Choix de la conférence</h2>
-                    Conférence : <select name="conf" id="liste-confs" class="input-xxlarge">
+                <table>
+                    <tr><td>Conférence :</td><td><select name="conf" id="liste-confs" class="input-xxlarge">
                         <option value="-1" selected="selected">Choisissez une conférence</option>
                         <?php
                             while($data = $conferences->fetch_assoc()) {
                                 echo '<option value="'.$data['id'].'">'.$data['titre'].' par '.nom_intervenant($data).'</option>';
                             }
                         ?>
-                        </select><br/>
-                    <div id="div-choix-date">Date : <select name="conf" id="liste-dispos" class="input-xxlarge"></select></div>
+                        </select></td></tr>
+                    <tr id="div-choix-date"><td>Date :</td><td><select name="date" id="liste-dispos" class="input-xxlarge"></select></td></tr>
+                </table>
                 <h2>Informations sur l'établissement</h2>
                     Établissement: 
                     <select name="id_etablissement" id="etablissement" class="input-xxlarge">
@@ -47,15 +49,20 @@ $conferences = db_query("SELECT c.id, i.id AS id_int, c.titre, i.nom, i.prenom
 					<tr><td>Email:</td>
 					<td><input type=text name=email size=50></td></tr>
 				</table>
-				</br>
+				<table>
+				<tr><td>Niveau :</td><td><input type="text" name="niveau" size="50"></td></tr>
+				<tr><td>Nombre élèves :</td><td><input type="text" name="nb_eleves" size="50"></td></tr>
+				</table>
 				<h2>
 					Informations sur le responsable :
 				</h2>
-                                Nom: <input type="text" name="resp-nom" size="50"><br/>
-                                Prénom: <input type="text" name="resp-prenom" size="50"><br/>
-                                Télephone: <input type="text" name="resp-telephone" size="50"><br/>
-                                E-mail: <input type="text" name="resp-mail" size="50"><br/>
-                <br/><br/>
+				<table>
+					<tr><td>Nom:</td><td><input type="text" name="resp-nom" size="50"></td></tr>
+          <tr><td>Prénom:</td><td><input type="text" name="resp-prenom" size="50"></td></tr>
+          <tr><td>Télephone:</td><td><input type="text" name="resp-telephone" size="50"></td></tr>
+          <tr><td>E-mail:</td><td><input type="text" name="resp-mail" size="50"></td></tr>
+        </table>
+        <br/>
 				<input type=submit value=Envoyer class="btn btn-success btn-large"> 
 				<input type=reset value=Annuler class="btn btn-danger btn-large">
             </form>

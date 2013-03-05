@@ -40,15 +40,17 @@ for ($i = 0; $i < $nb_acc; $i++) {
 	$acprenom = $_POST["ac".$i."prenom"];
 	$actelephone = $_POST["ac".$i."telephone"];
 	$acmail = $_POST["ac".$i."mail"];
-	
+	$date_creation = date("Y-m-d H:i:s");
+
 	//Insertion d'un accompagnateur
-	db_query("INSERT INTO `accompagnateurs13`(`nom`, `prenom`, `mail`, `tel`) VALUES ('%s','%s','%s','%s')", $acnom, $acprenom, $actelephone, $acmail);
+	db_query("INSERT INTO `accompagnateurs13`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s')", $acnom, $acprenom, $acmail, $actelephone, $id_etablissement, $date_creation);
 	$idacc = mysqli_insert_id($mysql_conn);
 	
 	//Insertion accompagnateur et reservation dans la table de jointure
 	db_query("INSERT INTO `visite_acc`(`idresa`, `idaccompagnateur`) VALUES ('%s','%s')", $idresa, $idacc);
-	
+		
 }
+
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">
