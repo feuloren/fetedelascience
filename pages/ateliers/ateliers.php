@@ -31,7 +31,7 @@ fds_entete("Village des sciences 2012");
   <div class="span12">
     <div class="well">
       <ul class="nav nav-list fds-list" id="listeconfs">
-				<li class="fds-li-btn"><a href="/fetedelascience/inscription/village" class="btn btn-success">Inscription au Village</a></li>
+				<li class="fds-li-btn"><a href="/fetedelascience/inscription/village" class="btn btn-warning">Inscription au Village</a></li>
 				<li class="divider"></li>
         <li class="nav-header">Liste des ateliers</li>
         <?php echo $nav; ?>

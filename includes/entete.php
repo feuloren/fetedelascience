@@ -42,7 +42,7 @@
             <li><a href="/fetedelascience/contact">Contact</a></li>
           </ul>
           <div class="nav pull-right hidden-phone">
-            <a href="/fetedelascience/inscription" class="btn btn-success">Inscription</a>
+            <a href="/fetedelascience/inscription" class="btn btn-warning">Inscription</a>
           </div>
         </div>
       </div>
