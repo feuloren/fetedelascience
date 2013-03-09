@@ -25,8 +25,8 @@ fds_entete("Contact");
 					<td><textarea COLS=50 ROWS=6 name=comments></textarea></td></tr>
 				</table>
 				<br> 
-				<input type=submit value=Envoyer> -
-				<input type=reset value=Annuler>
+				<input type=submit value=Envoyer class="btn btn-success btn-large"> 
+				<input type=reset value=Annuler class="btn btn-danger btn-large">
 			</form>
   </div>
 </div>

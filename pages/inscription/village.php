@@ -11,7 +11,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
                     Établissement: 
                     <select name="id_etablissement" id="etablissement">
                             <option value="-1">- Ajouter un établissement -</option>
-                            <option selected="selected">Choisissez dans la liste</option>
+                            <option value="-2" selected="selected">Choisissez dans la liste</option>
                             <?php
                                 while($data = $etablissements->fetch_assoc()) {
                                     echo "<option value=\"" . $data["id"] . "\">" . $data["nom"] . " - " . $data["ville"] . "</option>";

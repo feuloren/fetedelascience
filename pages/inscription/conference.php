@@ -26,7 +26,7 @@ $conferences = db_query("SELECT c.id, i.id AS id_int, c.titre, i.nom, i.prenom
                     Établissement: 
                     <select name="id_etablissement" id="etablissement" class="input-xxlarge">
                             <option value="-1">- Ajouter un établissement -</option>
-                            <option selected="selected">Choisissez un établissement</option>
+                            <option value="-2" selected="selected">Choisissez un établissement</option>
                             <?php
                                 while($data = $etablissements->fetch_assoc()) {
                                     echo "<option value=\"" . $data["id"] . "\">" . $data["nom"] . " - " . $data["ville"] . "</option>";
