@@ -18,7 +18,7 @@ else if ($id_erreur == '3') {
 	echo stripslashes('<p> Vous devez choisir un établissement dans la liste ou en ajouter un </p>');
 }
 else if ($id_erreur == '4') {
-	echo stripslashes('<p> Le champ "nombre" de votre inscription doit être remplis </p>');
+	echo stripslashes('<p> Les champs "Nombre d\'élèves" et "Niveau" de votre inscription doit être remplis </p>');
 }
 else {
 	echo stripslashes('<p> Désolé </p>');

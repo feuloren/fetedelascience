@@ -25,6 +25,8 @@ function add_intervenant($i) {
 
 //Initialisation i
 $i = 0;
+$mail_accompagnateur = '';
+$TO_accompagnateur = '';
 
 //Récupération de l'id de l'établissement
 $id_etablissement = $_POST["id_etablissement"];
@@ -58,7 +60,7 @@ else if (add_intervenant(0) != true) {
 	header('Location: erreurinscription?id=2');
 	die();
 }
-else if ($nombre === '') {
+else if ($nombre === '' || $niveau === '') {
 	header('Location: erreurinscription?id=4');
 	die();
 }
@@ -75,7 +77,58 @@ if ('-1' == $id_etablissement) {
 	
 	for ($i = 0; $i < $nb_acc; $i++) {
 		add_intervenant($i);
+		if (add_intervenant($i)){
+			$mail_accompagnateur .= $acprenom.' '.$acnom.'  -  Téléphone : '.$actelephone.'\n';
+			$TO_accompagnateur .= ', '.$acmail;
+		}			
 	}
+	
+if ('-1' != $id_etablissement) {
+	//Recuperation de l'établissement au cas où il ai été choisis dans la liste
+	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements13` WHERE id='%'", $id_etablissement);
+	$etablissement = recup_etablissement->fetch_assoc();
+	$nom_etablissement = $etablissement['nom'];
+	$rue = $etablissement['adresse'];
+	$cp = $etablissement['code_postal'];
+	$ville = $etablissement['ville'];
+	$email = $etablissement['mail'];
+	$fax = $etablissement['fax'];
+	$telephone = $etablissement['telephone'];
+}
+
+//Rédaction du mail à l'intervenant +copie à la fds
+$message = "Bonjour\n\n";
+$message .= "Nous vous confirmons la validation de votre inscription à  la visite du Village de la\n";
+$message .= "Technologie de la Fête de la Science pour le $jour entre $heurearrive et $heuredepart.\n\n";
+$message .= "\nRappel des informations vous concernant : \n\n";
+$message .= "$nom_etablissement\nAdresse : $rue $cp $ville\nTéléphone : $telephone\nFax : $fax\nE-mail : $email\n";
+$message .= "Classe(s) : $niveau.\n";
+$message .= "Nombre d'élèves : $nb_eleves.\n\n";
+$message .= "Coordonnées du (des) accompagnateur(s) :\n $mail_accompagnateur";
+$message .= "\nNous vous attendons à l'accueil du Village de la Technologie, situé dans Hall du batiment Pierre Guillaumat\n";
+$message .= "(rue du Docteur Schweitzer à Compiègne). \n\n";
+$message .= "Votre groupe sera pris en charge (nous constituerons des groupes de 15 à 20 personnes)\n";
+$message .= "par un ou plusieurs guides pendant toute la durée de la visite.\n\n";
+$message .= "Les pique-niques sont possibles sur place pour les groupes qui viennent pour la \n";
+$message .= "journée du vendredi : des tentes seront dressées au Parc de Bayser. La surveillance des élèves \n";
+$message .= "par les enseignants doit être continue (pas de \"quartier libre\", notamment au moment \n";
+$message .= "du pique-nique).\n\n";
+$message .= "Nous restons à votre disposition pour tous renseignements.\n";
+$message .= "Nous vous remercions de votre intérêt pour la Fête de la Science.\n\n";
+$message .= "L'équipe de la Fête de la Science\n\n";
+$message .= "Téléphone : 03 44 23 49 94 - Fax : 03 44 23 52 19\n";
+$message .= "Courriel : fete-de-la-science6@utc.fr\n";
+$message .= "http://www.utc.fr/fetedelascience\n";
+$messageV = "<html><body>" . nl2br(htmlspecialchars(stripslashes($message))) . "</body></html>";
+$TOvillage = "$email $TO_accompagnateur, fete-de-la-science6@utc.fr" . "\r\n";
+
+//Envoi des mails
+$subject = "Demande d'inscription au village de la technologie ";
+$header = "From: fete-de-la-science6@utc.fr" . "\r\n";
+$header .= 'MIME-Version: 1.0' . "\r\n";
+$header .= 'Content-type: text/html; charset=utf-8';
+
+mail($TOvillage, $subject, $messageV, $header);
 }
 ?>
 <div class="row-fluid">

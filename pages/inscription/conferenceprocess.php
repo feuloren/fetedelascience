@@ -42,7 +42,7 @@ else if ($resp_nom === '' || $resp_prenom === '' || $resp_mail === '' || $resp_t
 	header('Location: erreurinscription?id=2');
 	die();
 }
-else if ($nb_eleves === '') {
+else if ($nb_eleves === '' || $niveau === '') {
 	header('Location: erreurinscription?id=4');
 	die();
 }
