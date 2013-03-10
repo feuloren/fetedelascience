@@ -79,4 +79,27 @@ function fds_basdepage($scripts="") {
   require('includes/basdepage.php');
 }
 
+$parametres = false;
+function load_parametres() {
+  global $parametres;
+  $parametres = array();
+  $req = db_query("SELECT * FROM `parametres`");
+  while ($data = $req->fetch_assoc())
+    $parametres[$data['nom']] = $data['valeur'];
+}
+
+function get_parametre($parametre) {
+  global $parametres;
+  if ($parametres === false)
+    load_parametres();
+  if (array_key_exists($parametre, $parametres)) 
+    return $parametres[$parametre];
+  else
+    return NULL;
+}
+
+function get_annee() {
+  return get_parametre('annee');
+}
+
 require_once('format.php');
