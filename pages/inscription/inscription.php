@@ -1,6 +1,7 @@
 <?php
-fds_entete("Contact");
+fds_entete("Inscription ".get_annee());
 ?>
+
 <div class="row-fluid">
   <div class="span12 well well-large">
 		<div class="row-fluid">
