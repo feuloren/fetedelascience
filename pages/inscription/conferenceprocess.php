@@ -50,37 +50,37 @@ else {
 //Ajout de l'etablissement si besoin
 if ('-1' == $id_etablissement) {
 	//Insertion d'un établissment dans la base au cas ou il n'existe pas
-	db_query("INSERT INTO `etablissements13`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax`) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $nom_etablissement, $telephone, $email, $rue, $cp, $ville, $fax);
+	db_query("INSERT INTO `etablissements`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `annee`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')", $nom_etablissement, $telephone, $email, $rue, $cp, $ville, $fax, get_annee());
 	$id_etablissement = mysqli_insert_id($mysql_conn);
 }
 
 //Insertion d'un responsable
-db_query("INSERT INTO `accompagnateurs13`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s')", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, $date_creation);
+db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, get_annee(), $date_creation);
 $idresp = mysqli_insert_id($mysql_conn);
 
 //Récupération du jour et de la période
-$result = db_query("SELECT `jour`, `periode` FROM `disponibilites13` WHERE id='%s'", $id_dispo);
+$result = db_query("SELECT `jour`, `periode` FROM `disponibilites` WHERE id='%s'", $id_dispo);
 $date = $result->fetch_assoc();
 $jour = $date['jour'];
 $periode = $date['periode'];
 
 //Insertion de la réservation
-db_query("INSERT INTO `reservations13`(`conference`, `jour`, `periode`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $conf, $jour, $periode,$id_etablissement, $idresp, $niveau, $nb_eleves);
+db_query("INSERT INTO `reservations`(`conference`, `jour`, `periode`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`, `annee`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')", $conf, $jour, $periode,$id_etablissement, $idresp, $niveau, $nb_eleves, get_annee());
 
 //Recuperation titre et nom intervenant de la conférence
-$recup_conf = db_query("SELECT `titre`, `intervenant` FROM `conferences13` WHERE id='%'", $conf);
+$recup_conf = db_query("SELECT `titre`, `intervenant` FROM `conferences` WHERE id='%'", $conf);
 $conference = $recup_conf->fetch_assoc();
 $titre = $conference['titre'];
 $id_intervenant = $conference['intervenant'];
-$recup_intervenant = db_query("SELECT `nom`, `prenom`, `mail` FROM `intervenants13` WHERE id='%'", $id_intervenant);
+$recup_intervenant = db_query("SELECT `nom`, `prenom`, `mail` FROM `intervenants` WHERE id='%'", $id_intervenant);
 $intervenant = $recup_intervenant->fetch_assoc();
 $nom_intervenant = $intervenant['nom'];
 $prenom_intervenant = $intervenant['prenom'];
-$mail_intervenant = $intervenant['mail']
+$mail_intervenant = $intervenant['mail'];
 
 if ('-1' != $id_etablissement) {
 	//Recuperation de l'établissement au cas où il ai été choisis dans la liste
-	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements13` WHERE id='%'", $id_etablissement);
+	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements` WHERE id='%'", $id_etablissement);
 	$etablissement = recup_etablissement->fetch_assoc();
 	$nom_etablissement = $etablissement['nom'];
 	$rue = $etablissement['adresse'];
