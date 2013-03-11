@@ -14,7 +14,7 @@ function add_intervenant($i) {
 	}
 	else {
 	//Insertion d'un accompagnateur
-	db_query("INSERT INTO `accompagnateurs13`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s')", $acnom, $acprenom, $acmail, $actelephone, $id_etablissement, $date_creation);
+	db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s')", $acnom, $acprenom, $acmail, $actelephone, $id_etablissement, $date_creation);
 	$idacc = mysqli_insert_id($mysql_conn);
 	
 	//Insertion accompagnateur et reservation dans la table de jointure
@@ -68,11 +68,11 @@ else {
 //Ajout de l'etablissement si besoin
 if ('-1' == $id_etablissement) {
 	//Insertion d'un établissment dans la base au cas ou il n'existe pas
-	db_query("INSERT INTO `etablissements13`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`) VALUES ('%s','%s','%s','%s','%s','%s')", $etablissement, $telephone, $email, $rue, $cp, $ville);
+	db_query("INSERT INTO `etablissements`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`) VALUES ('%s','%s','%s','%s','%s','%s')", $etablissement, $telephone, $email, $rue, $cp, $ville);
 	$id_etablissement = mysqli_insert_id($mysql_conn);
 }
 	////Insertion d'une inscription au village
-	db_query("INSERT INTO `village13`(`idetab`, `niveau`, `nombre`, `date`, `heurearrive`, `heuredepart`) VALUES ('%s','%s','%s','%s','%s','%s')", $id_etablissement, $niveau, $nombre, $jour, $heurearrive, $heuredepart);
+	db_query("INSERT INTO `village`(`idetab`, `niveau`, `nombre`, `date`, `heurearrive`, `heuredepart`) VALUES ('%s','%s','%s','%s','%s','%s')", $id_etablissement, $niveau, $nombre, $jour, $heurearrive, $heuredepart);
 	$idresa = mysqli_insert_id($mysql_conn);
 	
 	for ($i = 0; $i < $nb_acc; $i++) {
@@ -85,7 +85,7 @@ if ('-1' == $id_etablissement) {
 	
 if ('-1' != $id_etablissement) {
 	//Recuperation de l'établissement au cas où il ai été choisis dans la liste
-	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements13` WHERE id='%'", $id_etablissement);
+	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements` WHERE id='%'", $id_etablissement);
 	$etablissement = recup_etablissement->fetch_assoc();
 	$nom_etablissement = $etablissement['nom'];
 	$rue = $etablissement['adresse'];
