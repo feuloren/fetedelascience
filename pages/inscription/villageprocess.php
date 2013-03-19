@@ -86,7 +86,7 @@ if ('-1' == $id_etablissement) {
 if ('-1' != $id_etablissement) {
 	//Recuperation de l'établissement au cas où il ai été choisis dans la liste
 	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements` WHERE id='%s'", $id_etablissement);
-	$etablissement = recup_etablissement->fetch_assoc();
+	$etablissement = $recup_etablissement->fetch_assoc();
 	$nom_etablissement = $etablissement['nom'];
 	$rue = $etablissement['adresse'];
 	$cp = $etablissement['code_postal'];

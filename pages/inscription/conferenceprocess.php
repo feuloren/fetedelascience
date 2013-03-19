@@ -27,23 +27,23 @@ $nb_eleves = $_POST["nb_eleves"];
 $id_dispo = $_POST["date"];
 
 if ($conf == '-1') {
-	header('Location: erreurinscription?id=0');
+	header('Location: erreurconference?id=0');
 	die();
 }
 else if (($id_etablissement == '-1') && ($nom_etablissement === '' || $rue === '' || $cp === '' || $ville === '' || $email === '' || $telephone === '')) {
-	header('Location: erreurinscription?id=1');
+	header('Location: erreurconference?id=1');
 	die();
 }
 else if ($id_etablissement == '-2') {
-	header('Location: erreurinscription?id=3');
+	header('Location: erreurconference?id=3');
 	die();
 }
 else if ($resp_nom === '' || $resp_prenom === '' || $resp_mail === '' || $resp_telephone === '') {
-	header('Location: erreurinscription?id=2');
+	header('Location: erreurconference?id=2');
 	die();
 }
 else if ($nb_eleves === '' || $niveau === '') {
-	header('Location: erreurinscription?id=4');
+	header('Location: erreurconference?id=4');
 	die();
 }
 else {
@@ -81,7 +81,7 @@ $mail_intervenant = $intervenant['mail'];
 if ('-1' != $id_etablissement) {
 	//Recuperation de l'établissement au cas où il ai été choisis dans la liste
 	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements` WHERE id='%'", $id_etablissement);
-	$etablissement = recup_etablissement->fetch_assoc();
+	$etablissement = $recup_etablissement->fetch_assoc();
 	$nom_etablissement = $etablissement['nom'];
 	$rue = $etablissement['adresse'];
 	$cp = $etablissement['code_postal'];
