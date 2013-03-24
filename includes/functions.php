@@ -40,6 +40,12 @@ function db_query($query) {
     array_unshift($args, $query);
     $query = call_user_func_array('sprintf', $args);
   }
+  if (DEBUG) {
+    echo '<pre style="display:none;">';
+    var_dump($query);
+    echo '</pre>';
+  }
+
   $req = $mysql_conn->query($query);
   if (!$req) {
     if (DEBUG)
