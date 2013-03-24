@@ -8,13 +8,9 @@
 $dossier = "images/photos2012/";
 $files = scandir($dossier);
 
-include_script('http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js');
-include_script('bootstrap-image-gallery.min.js');
+include_script('imageflow.packed.js');
 
-add_header('
-<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"/><![endif]-->
-<link rel="stylesheet" href="/fetedelascience/style/bootstrap-image-gallery.min.css"/>
-');
+add_header('<link rel="stylesheet" href="/fetedelascience/style/imageflow.css"/>');
 
 fds_entete("Photos 2012");
 ?>
@@ -35,16 +31,15 @@ fds_entete("Photos 2012");
 
 <div id="row-fluid">
   <div id="span12">
-    <ul id="gallery" data-toggle="modal-gallery"
-        data-target="#modal-gallery" class="thumbnails">
+    <div id="gallery" class="imageflow">
   <?php
      foreach ($files as $file) {
      if ($file[0] != '.' AND $file != 'min') {
-     echo "<li><a rel='gallery' href='/fetedelascience/".$dossier.$file."' title='' class='thumbnail'><img src='/fetedelascience/".$dossier.'min/'."$file'/></a></li>\n";
+         echo "<img src='/fetedelascience/".$dossier."min/$file' longdesc='/fetedelascience/".$dossier."$file' alt='' />\n";
      }
      }
      ?>
-    </ul>
+    </div>
   </div>
 </div>
 
