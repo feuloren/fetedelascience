@@ -12,7 +12,7 @@ if ($id_erreur == '1') {
 	echo stripslashes('<p> Tout les champs relatifs à l\'enregistrement de votre établissement n\'ont pas été remplis </p>');
 }
 else if ($id_erreur == '2') {
-	echo stripslashes('<p> Les champs relatifs au premier intervenant doivent absolument être remplis </p>');
+	echo stripslashes('<p> Les champs relatifs au premier accompagnateur doivent absolument être remplis </p>');
 }
 else if ($id_erreur == '3') {
 	echo stripslashes('<p> Vous devez choisir un établissement dans la liste ou en ajouter un </p>');

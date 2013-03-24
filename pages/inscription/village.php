@@ -40,7 +40,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
 				</h2>
 					<div class="row-fluid" id="listeIntervenants">
                     </div>
-                    <a href="#listeIntervenants" id="btnAddIntervenant" class="btn btn-primary">Ajouter un Intervenant</a>
+                    <a href="#listeIntervenants" id="btnAddIntervenant" class="btn btn-primary">Ajouter un Accompagnateur</a>
 					<h2>
 						Information complémentaire :
 					</h2>

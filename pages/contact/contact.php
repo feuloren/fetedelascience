@@ -4,7 +4,7 @@ fds_entete("Contact");
 <div class="row-fluid">
   <div class="span12 well well-large">
     <p>
-      Vous pouvez nous contacter <b>par téléphone : 03.44.23.??.??</b> <br/>
+      Vous pouvez nous contacter <b>par téléphone : 03.44.23.49.94</b> <br/>
       Ou <b>par mail : fetedelascience AROBASE utc.fr</b> <br/>
       Ou grâce au formulaire ci dessous :
     </p>
