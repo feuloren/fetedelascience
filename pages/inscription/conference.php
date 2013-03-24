@@ -3,9 +3,11 @@ fds_entete("Inscription aux conférences");
 
 include_once('aux.php');
 
-$etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
+$annee = get_annee();
+$etablissements = db_query("SELECT id, nom, ville FROM etablissements WHERE annee LIKE '$annee'");
 $conferences = db_query("SELECT c.id, i.id AS id_int, c.titre, i.nom, i.prenom
-                         FROM conferences13 c JOIN intervenants13 i ON c.intervenant = i.id");
+                         FROM conferences c JOIN intervenants i ON c.intervenant = i.id
+                         WHERE c.annee LIKE '$annee'");
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">

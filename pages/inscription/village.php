@@ -2,7 +2,8 @@
 add_header('<link href="/fetedelascience/style/bootstrap-timepicker.min.css" rel="stylesheet"/>');
 fds_entete("Inscription au Village");
 
-$etablissements = db_query("SELECT id, nom, ville FROM etablissements13");
+$annee = get_annee();
+$etablissements = db_query("SELECT id, nom, ville FROM etablissements WHERE annee LIKE '$annee'");
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">
