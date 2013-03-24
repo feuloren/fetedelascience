@@ -68,11 +68,11 @@ $periode = $date['periode'];
 db_query("INSERT INTO `reservations`(`conference`, `jour`, `periode`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`, `annee`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')", $conf, $jour, $periode,$id_etablissement, $idresp, $niveau, $nb_eleves, get_annee());
 
 //Recuperation titre et nom intervenant de la conférence
-$recup_conf = db_query("SELECT `titre`, `intervenant` FROM `conferences` WHERE id='%'", $conf);
+$recup_conf = db_query("SELECT `titre`, `intervenant` FROM `conferences` WHERE id='%s'", $conf);
 $conference = $recup_conf->fetch_assoc();
 $titre = $conference['titre'];
 $id_intervenant = $conference['intervenant'];
-$recup_intervenant = db_query("SELECT `nom`, `prenom`, `mail` FROM `intervenants` WHERE id='%'", $id_intervenant);
+$recup_intervenant = db_query("SELECT `nom`, `prenom`, `mail` FROM `intervenants` WHERE id='%s'", $id_intervenant);
 $intervenant = $recup_intervenant->fetch_assoc();
 $nom_intervenant = $intervenant['nom'];
 $prenom_intervenant = $intervenant['prenom'];
@@ -80,7 +80,7 @@ $mail_intervenant = $intervenant['mail'];
 
 if ('-1' != $id_etablissement) {
 	//Recuperation de l'établissement au cas où il ai été choisis dans la liste
-	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements` WHERE id='%'", $id_etablissement);
+	$recup_etablissement = db_query("SELECT `id`, `nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax` FROM `etablissements` WHERE id='%s'", $id_etablissement);
 	$etablissement = $recup_etablissement->fetch_assoc();
 	$nom_etablissement = $etablissement['nom'];
 	$rue = $etablissement['adresse'];
