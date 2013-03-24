@@ -15,7 +15,7 @@ add_header('<link rel="stylesheet" href="/fetedelascience/style/imageflow.css"/>
 fds_entete("Photos 2012");
 ?>
 
-<div class="row-fluid">
+<div class="row-fluid" style="display:none;">
   <div class="span12 well well-large">
     <h3>Découvrez ci dessous des photos de la
     Fête de la science édition 2012</h3>

@@ -42,5 +42,8 @@ domReady(function()
 	var instanceOne = new ImageFlow();
 	instanceOne.init({ ImageFlowID:'gallery',
                        reflections: false,
-                       reflectionP: 0.0});
+                       reflectionP: 0.0,
+                       imageFocusM: 1.4,
+                       preloadImages: false,
+                       aspectRatio: 3.0  });
 });
