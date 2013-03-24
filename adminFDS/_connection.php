@@ -164,17 +164,42 @@ function get_text($id) {
     return '';
 }
 
+$parametres = false;
+function load_parametres() {
+  global $parametres;
+  $parametres = array();
+  $req = tx_query("SELECT * FROM `parametres`");
+  while ($data = mysql_fetch_assoc($req))
+    $parametres[$data['nom']] = array($data['valeur'], $data['description']);
+}
+
+function get_parametre($parametre) {
+  global $parametres;
+  if ($parametres === false)
+    load_parametres();
+  if (array_key_exists($parametre, $parametres)) 
+    return $parametres[$parametre][0];
+  else
+    return NULL;
+}
+
+function get_annee() {
+  return get_parametre('annee');
+}
+
+
+
 require_once 'auth.php';
 
 //Les différentes pages
-$pages = array("actus" => "Actualités",
-               "conferences" => "Conférences",
+$pages = array("conferences" => "Conférences",
                "ateliers" => "Ateliers",
                "acteurs" => "Acteurs",
-               "intervenants" => "Intervenants");
+               "intervenants" => "Intervenants",
+               "parametres" => "Paramètres");
 $actions = array("ajouter", "supprimer", "modifier");
 //$adminLogin = "a";
-$adminPages = array("index", "conferences", "ateliers", "actus", "intervenants"); //debug
+$adminPages = array("index", "conferences", "ateliers", "actus", "intervenants", "parametres"); //debug
 $adminBranches = array("GI", "ASSO", "GB", "GM", "UTC", "TSH", "GSU", "GSM", "CSTI", "GP", "ESCOM"); //debug
 
 ?>
