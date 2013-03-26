@@ -60,6 +60,7 @@
 <script src="/fetedelascience/js/bootstrap.min.js"></script>
 <script src="/fetedelascience/js/tablefilter.js"></script>
 <script src="/fetedelascience/js/bootstrap-datepicker.js"></script>
+<script src="/fetedelascience/js/bootstrap-timepicker.min.js"></script>
 <script type="text/javascript">
     var page_actuelle = '<?php echo $page_en_cours; ?>';
     var register_click = function(what, call) {

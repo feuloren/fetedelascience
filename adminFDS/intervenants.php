@@ -10,7 +10,7 @@ $template = "table.php";
 
 $txt_bouton = "Ajouter un intervenant";
 
-$req = tx_query("SELECT * FROM intervenants13");
+$req = tx_query("SELECT * FROM intervenants");
 $num = mysql_num_rows($req);
 if ($num === 0)
   $center = "Aucun intervenant enregistré";
@@ -24,7 +24,7 @@ $mois = array("", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juille
 
 function get_disponibilites($id) {
   global $jours, $mois;
-  $req = tx_query("SELECT * FROM disponibilites13 WHERE intervenant = $id ORDER BY jour");
+  $req = tx_query("SELECT * FROM disponibilites WHERE intervenant = $id ORDER BY jour");
   $dispos = "<br/>"; 
   $dispos .= "<span class='add-dispo' ref='$id'><i class='icon-plus'></i> Ajouter une disponibilité</span>";
   $dispos .= "<br/><br/>"; 
@@ -32,7 +32,8 @@ function get_disponibilites($id) {
     $date_ = strtotime($data['jour']);
     $nom_jour = $jours[date('w', $date_)];
     $nom_mois = $mois[date('n', $date_)];
-    $dispos .= $nom_jour . ' ' . date('j', $date_) . ' ' . $nom_mois . ' ' . $data['periode'];
+    $heure = 'de '.substr($data['heureDebut'], 0, 5).' à '.substr($data['heureFin'], 0, 5);
+    $dispos .= $nom_jour . ' ' . date('j', $date_) . ' ' . $nom_mois . ' ' . $data['periode'] . ' ' . $heure;
     $dispos .= " <i rel='tooltip' data-original-title='Supprimer cette disponibilité' class='icon-remove dispo-remove' ref='". $data["id"] ."'></i><br/>\n";
   }
   return $dispos;
@@ -115,6 +116,18 @@ register_click('.dispo-remove', function(ref) {
                  }
               });
   };
+  $('#heureDebut').timepicker({minuteStep: 15,
+						template: false,
+						showSeconds: false,
+						showMeridian: false,
+						defaultTime: '08:00 AM',
+					});
+   $('#heureFin').timepicker({minuteStep: 15,
+						template: false,
+						showSeconds: false,
+						showMeridian: false,
+						defaultTime: '13:00 PM',
+				});
   set_ref();
 });";
 
@@ -163,11 +176,24 @@ function echo_add_form() {
     </div>
    <div class="control-group">
       <label class="control-label" for="periodeDispo">Période</label>
-      <div class="controls">
+      <div class="controls bootstrap-timepicker">
         <select class="input-xlarge" id="periodeDispo" name="periode">
           <option value="matin">Matin</option>
           <option value="aprem">Après-Midi</option>
         </select>
+      </div>
+    </div>
+   <div class="control-group">
+      <label class="control-label" for="heureDebut">Heure début</label>
+      <div class="controls bootstrap-timepicker">
+        <input type="input-medium" id="heureDebut" name="heureDebut"
+  class="input-xlarge" />
+      </div>
+    </div>
+   <div class="control-group">
+      <label class="control-label" for="heureFin">Heure fin</label>
+      <div class="controls">
+        <input type="input-medium" id="heureFin" name="heureFin" class="input-xlarge" />
       </div>
     </div>
 

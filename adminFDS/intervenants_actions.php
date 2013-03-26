@@ -21,21 +21,21 @@ case 'supprimer':
   $ref = intval($_POST['ref']);
   // On parse la référence pour voir si l'utilisateur connecté est autorisé à la supprimer
   if ($ref > 0)
-    tx_query("DELETE FROM `intervenants13` WHERE `id` = " . $ref);
+    tx_query("DELETE FROM `intervenants` WHERE `id` = " . $ref);
   else {
     die("Vous n'êtes pas autorisé à supprimer cet atelier.");
   }
 
   break;
 case 'generer-ref':
-  $req = tx_query("SELECT MAX(id) FROM `intervenants13`");
+  $req = tx_query("SELECT MAX(id) FROM `intervenants`");
   $data = mysql_fetch_array($req);
   echo $data[0] + 1;
   break;
 case 'pre-modif':
   $ref = intval($_POST['ref']);
   if ($ref > 0) {
-    $req = tx_query("SELECT * FROM `intervenants13` WHERE `id` = " . $ref);
+    $req = tx_query("SELECT * FROM `intervenants` WHERE `id` = " . $ref);
     $data = mysql_fetch_assoc($req);
     echo json_encode($data);
   }
@@ -44,10 +44,10 @@ case 'ajouter': // ou modifier c'est pareil
   $data = parse_post_data();
   // faire un replace into au lieu de insert
   if ($data) {
-    $chaine = "REPLACE `intervenants13`
-              (`id`, `nom`, `prenom`, `telephone`, `mail`)
+    $chaine = "REPLACE `intervenants `
+              (`id`, `nom`, `prenom`, `telephone`, `mail`, `annee`, `date_modification`)
               VALUES (".$data['ref'].", '".$data['nom']."', '".$data['prenom']."', '".$data['telephone']."',
-                      '".$data['mail']."')";
+                      '".$data['mail']."', '".get_annee()."', NOW())";
 var_dump($chaine);
     tx_query($chaine);
   }
@@ -57,7 +57,7 @@ case 'supprimer-dispo':
   if ($ref <= 0)
     die("Identifiant incorrect");
   else
-    tx_query("DELETE FROM disponibilites13 WHERE id = $ref");
+    tx_query("DELETE FROM disponibilites  WHERE id = $ref");
   break;
 case 'ajouter-dispo':
   $ref = intval($_POST['ref']);
@@ -72,8 +72,16 @@ case 'ajouter-dispo':
   if (!in_array($periode, array('matin', 'aprem'))) {
     die("Période incorrecte ('matin' ou 'aprem')");
   }
-  tx_query("INSERT INTO `disponibilites13` (`jour`, `periode`, `intervenant`) VALUES
-            ('$date', '$periode', $ref)");
+  $debut = $_POST['heureDebut'];
+  if (!preg_match("/\d\d:\d\d/", $debut)) {
+      die("Format de l'heure de début incorrect");
+  }
+  $fin = $_POST['heureFin'];
+  if (!preg_match("/\d\d:\d\d/", $fin)) {
+      die("Format de l'heure de fin incorrect");
+  }
+  tx_query("INSERT INTO `disponibilites` (`jour`, `periode`, `intervenant`, `heureDebut`, `heureFin`) VALUES
+            ('$date', '$periode', $ref, '$debut', '$fin')");
   header("Location: $page.php");
   break;
 case 'export-excel':
