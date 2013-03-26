@@ -10,8 +10,7 @@ switch ($_GET['action']) {
             $dispos = db_query("SELECT d.id, d.periode, d.jour, r.id AS res_id
                                 FROM conferences c
                                 JOIN disponibilites d ON d.intervenant = c.intervenant
-                                LEFT JOIN reservations r ON c.id = r.conference AND
-                                          d.jour = r.jour AND d.periode = r.periode
+                                LEFT JOIN reservations r ON c.id = r.conference AND d.id = r.disponibilite
                                 WHERE c.id = $id");
             $result = array();
             while($data = $dispos->fetch_assoc())

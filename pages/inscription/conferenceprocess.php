@@ -58,14 +58,8 @@ if ('-1' == $id_etablissement) {
 db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, get_annee(), $date_creation);
 $idresp = mysqli_insert_id($mysql_conn);
 
-//Récupération du jour et de la période
-$result = db_query("SELECT `jour`, `periode` FROM `disponibilites` WHERE id='%s'", $id_dispo);
-$date = $result->fetch_assoc();
-$jour = $date['jour'];
-$periode = $date['periode'];
-
 //Insertion de la réservation
-db_query("INSERT INTO `reservations`(`conference`, `jour`, `periode`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`, `annee`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')", $conf, $jour, $periode,$id_etablissement, $idresp, $niveau, $nb_eleves, get_annee());
+db_query("INSERT INTO `reservations`(`conference`, `disponibilite`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`, `annee`) VALUES ('%s',%s,'%s','%s','%s','%s','%s')", $conf, $id_dispo ,$id_etablissement, $idresp, $niveau, $nb_eleves, get_annee());
 
 //Recuperation titre et nom intervenant de la conférence
 $recup_conf = db_query("SELECT `titre`, `intervenant` FROM `conferences` WHERE id='%s'", $conf);

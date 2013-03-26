@@ -91,6 +91,7 @@ $script = <<<'SCRIPT'
                    {dataType : 'json',
                     success : function(data) {
                         $('#div-choix-date').show();
+                        $('#liste-dispos').html('');
                         data.forEach(function(truc) {
                             var text = '<option value="'+truc.id+'"';
                             if (truc.res_id != null)
