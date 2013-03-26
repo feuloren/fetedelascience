@@ -20,13 +20,11 @@
         <div class="span2">
           <a href="http://www.fetedelascience.fr/" title="Site officiel de la Fête de la science"><img src="/fetedelascience/images/logo150.png" alt="logoFDS"/></a>
         </div>
-        <div class="span8">
+        <div class="span7">
           <img src="/fetedelascience/images/grand_titre.png" alt="Fête de la science - Du 10 au 14 octobre 2012"/>
         </div>
-        <div class="span2 hidden-phone">
-          <a href="http://www.utc.fr" title="Site internet de l'UTC"><img class="vertical-align" src="/fetedelascience/images/logo_utc.png" alt="logo_utc"/></a>
-          <a href="http://www.enseignementsup-recherche.gouv.fr/"
-          title="Site internet du Ministère de l'Enseignement Supérieur et de la Recherche"><img class="vertical-align" src="/fetedelascience/images/logo_ministere.png" alt="logo_ministere"/></a>
+        <div class="span3 hidden-phone right-aligned">
+          <a href="http://www.utc.fr" title="Site internet de l'UTC"><img src="/fetedelascience/images/logo_haut_droite1502.png" alt="logo_utc"/></a>
         </div>
       </div>
       <div class="navbar navbar-inverse">

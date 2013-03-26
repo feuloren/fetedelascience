@@ -85,6 +85,15 @@
 .fds-list .fds-li-btn {
     list-style-image: none;
 }
+.right-aligned {
+	text-align : right;
+}
+.bandeau {
+	background-image : url('../images/bandeauFDS.jpg');
+	background-repeat : repeat-x;
+	width: auto;
+    height: 83px;
+}
 .petiteicone
 {
     width: 390px;

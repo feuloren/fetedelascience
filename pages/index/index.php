@@ -8,6 +8,9 @@ fds_entete("UTC - Fête de la science");
   </div>
 </div>
 -->
+<div class="row-fluid bandeau">
+</div>
+</br>
 <div class="row-fluid">
     <ul class="thumbnails">
       <!-- Grosse photo -->
