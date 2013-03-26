@@ -35,7 +35,7 @@ fds_entete("Photos 2012");
   <?php
      foreach ($files as $file) {
      if ($file[0] != '.' AND $file != 'min') {
-         echo "<img src='/fetedelascience/".$dossier."min/$file' longdesc='/fetedelascience/".$dossier."$file' alt='' />\n";
+         echo "<img src='/fetedelascience/".$dossier."min2/$file' longdesc='/fetedelascience/".$dossier."$file' alt='' />\n";
      }
      }
      ?>
