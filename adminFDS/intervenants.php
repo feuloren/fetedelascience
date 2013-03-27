@@ -10,7 +10,7 @@ $template = "table.php";
 
 $txt_bouton = "Ajouter un intervenant";
 
-$req = tx_query("SELECT * FROM intervenants");
+$req = tx_query("SELECT * FROM intervenants WHERE annee = '".get_annee()."'");
 $num = mysql_num_rows($req);
 if ($num === 0)
   $center = "Aucun intervenant enregistré";

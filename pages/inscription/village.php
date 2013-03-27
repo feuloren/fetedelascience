@@ -89,7 +89,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements WHERE anne
 </div>
 
 <?php
-$script = <<<'SCRIPT'
+$script = <<<SCRIPT
     var add_intervenant = function() {
 			var nb_intervenants = parseInt($('#nb_acc').val());
         var txt = '<div class="row-fluid">'+

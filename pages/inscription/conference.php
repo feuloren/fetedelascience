@@ -72,7 +72,7 @@ $conferences = db_query("SELECT c.id, i.id AS id_int, c.titre, i.nom, i.prenom
 </div>
 
 <?php
-$script = <<<'SCRIPT'
+$script = <<<SCRIPT
     $(function() {
         $("#newEtab").hide();
         $('#div-choix-date').hide();
