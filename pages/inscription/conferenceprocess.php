@@ -50,12 +50,12 @@ else {
 //Ajout de l'etablissement si besoin
 if ('-1' == $id_etablissement) {
 	//Insertion d'un établissment dans la base au cas ou il n'existe pas
-	db_query("INSERT INTO `etablissements`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `annee`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')", $nom_etablissement, $telephone, $email, $rue, $cp, $ville, $fax, get_annee());
+	db_query("INSERT INTO `etablissements`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s', NOW())", $nom_etablissement, $telephone, $email, $rue, $cp, $ville, $fax, get_annee());
 	$id_etablissement = mysqli_insert_id($mysql_conn);
 }
 
 //Insertion d'un responsable
-db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s')", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, get_annee(), $date_creation);
+db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s', NOW())", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, get_annee());
 $idresp = mysqli_insert_id($mysql_conn);
 
 //Insertion de la réservation

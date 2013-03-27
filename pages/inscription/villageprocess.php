@@ -2,6 +2,7 @@
 fds_entete("Inscription enregistrée");
 
 function add_intervenant($i) {
+    global $mysql_conn;
 	//Récupération accompagnateur
 	$acnom = $_POST["ac".$i."nom"];
 	$acprenom = $_POST["ac".$i."prenom"];
