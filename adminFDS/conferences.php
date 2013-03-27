@@ -13,14 +13,11 @@ $template = "table.php";
 $txt_bouton = "Ajouter une conférence";
 
 // On prépare la requête sql
-// d'abord on crée la clause WHERE qui dépend des branches auxquelles
-// l'administrateur connecté à accès
-$refs_autorisees = array();
-foreach ($adminBranches as $branche)
-  $refs_autorisees[] = "`ref_conf` LIKE '%-$branche%'";
-$refs_autorisees = implode(" OR ", $refs_autorisees);
 
-$req = tx_query("SELECT ref_conf, titre, public1, materiel, resume, refa1, refa2, refa3 FROM conferences WHERE $refs_autorisees ORDER BY ref_conf");
+$req = tx_query("SELECT c.*, CONCAT(i.prenom, ' ', i.nom) as nom_intervenant
+                 FROM conferences c
+                 JOIN intervenants i ON c.intervenant = i.id
+                 WHERE c.annee = '".get_annee()."'");
 
 // On détermine le nombre d'ateliers dès maintenant car $center
 // est utilisé avant que base.php n'appelle echo_table_body()
@@ -43,31 +40,16 @@ function echo_table_body() {
   global $req;
 
   while($data = mysql_fetch_assoc($req)) {
-    $ref = explode(" ", $data['ref_conf']);
-    $ref = $ref[0];
+    $ref = $data['id'];
 
-    $auteurs = lister_auteurs($data);
-    $contenu = array($auteurs[0] => $auteurs[1],
-                     'Public' => $data['public1'],
+    $contenu = array('Intervenant' => $data['nom_intervenant'],
+                     'Public' => $data['public'],
                      'Matériel nécessaire' => $data['materiel'],
                      'Résumé' => nl2br(stripslashes($data['resume'])));
     $messages = array('collapse' => 'Voir les détails de cette conférence',
                       'edit' => 'Modifier cette conférence',
                       'remove' => 'Supprimer cette conférence');
     create_row($ref, stripslashes($data['titre']), $contenu, $messages);
-  }
-}
-
-function lister_auteurs($data) {
-  for ($i=1;$i<=3;$i++) {
-    $ref = $data["refa$i"];
-    if ($ref != 0)
-      $auteurs[] = _auteur($ref);
-  }
-  if (count($auteurs) > 1) {
-    return array("Auteurs", implode(',', $auteurs));
-  } else {
-    return array("Auteur", $auteurs[0]);
   }
 }
 
@@ -91,15 +73,12 @@ register_click('.edit', function(ref) {
            $.modification = true;
 
            $('#modalAdd').modal('show');
-           $('#refConf').val(result.ref_conf);
-           var branche = /V-([A-Z]{2,8})\d*/.exec(result.ref_conf);
-           $('#brancheConf').val(branche[1]);
-           $('#auteur1').val(result.refa1);
-           $('#auteur2').val(result.refa2);
-           $('#auteur3').val(result.refa3);
+           $('#refConf').val(result.id);
+           $('#intervenantConf').val(result.intervenant);
+           $('#brancheConf').val(result.branche);
            $('#titreConf').val(htmlDecode(result.titre));
            $('#resumeConf').val(htmlDecode(result.resume));
-           $('#publicConf').val(htmlDecode(result.public1));
+           $('#publicConf').val(result.public);
            $('#materielConf').val(htmlDecode(result.materiel));
          });
   });
@@ -124,19 +103,10 @@ register_click('.edit', function(ref) {
 
 // Appelée par base.php, crée les éléments de formulaires pour l'ajout d'un nouvel atelier
 function echo_add_form() {
-  global $adminBranches; //PHP sapu
-
-  $req = tx_query("SELECT nom, prenom, ref FROM acteurs ORDER BY nom");
+  $req = tx_query("SELECT id, CONCAT(prenom, ' ', nom) AS nom FROM intervenants ORDER BY prenom");
   $options = '\n';
   while($data = mysql_fetch_assoc($req)) {
-    $options .= '<option value="' . $data['ref'] . '">' . $data['nom'] . ' ' . $data['prenom'] . '</option>\n';
-  }
-
-  $req = tx_query("SELECT * FROM  branches");
-  $branchesDispo = "\n";
-  while($data = mysql_fetch_assoc($req)) {
-    if (in_array($data['branche'], $adminBranches))
-        $branchesDispo .= '<option value="' . $data['branche'] . '">' . $data['nom'] . '</option>\n';
+    $options .= '<option value="' . $data['id'] . '">' . $data['nom'] . '</option>\n';
   }
 
   echo <<<FORM
@@ -148,26 +118,12 @@ function echo_add_form() {
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="brancheConf">Département</label>
+      <label class="control-label" for="intervenantConf">Intervenant</label>
       <div class="controls">
-        <select class="input-xlarge" id="brancheConf">
-          ' . $branchesDispo . '
-        </select>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label" for="auteur1">Auteurs</label>
-      <div class="controls">
-        <select class="input-xlarge" id="auteur1" name="auteur1">
+        <select class="input-xlarge" id="intervenantConf" name="intervenant">
           ' . $options . '
         </select><br/>
-        <select class="input-xlarge" id="auteur1" name="auteur2">
-          ' . $options . '
-        </select><br/>
-        <select class="input-xlarge" id="auteur1" name="auteur3">
-          ' . $options . '
-        </select>
-        <div class="help-block"><a href="auteurs.php?add" target="blank" class="btn btn-primary">Nouvel acteur</a></div>
+        <div class="help-block"><a href="intervenants.php?add" target="blank" class="btn btn-primary">Nouvel Intervenant</a></div>
       </div>
     </div>
     <div class="control-group">
@@ -185,13 +141,22 @@ function echo_add_form() {
     <div class="control-group">
       <label class="control-label" for="resumeConf">Public</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" id="publicConf" name="public">
+        <input type="text" class="input-xlarge" id="publicConf"
+  name="public">
+        <span class="help-block">Primaire et/ou Collège et/ou Lycée;
+  séparés par des virgules</span>
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="resumeConf">Matériel</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" id="materielConf" name="materiel">
+        <textarea type="text" class="input-xlarge" id="materielConf" name="materiel"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="brancheConf">Branche</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="brancheConf" name="branche">
       </div>
     </div>
   </fieldset>
