@@ -1,6 +1,6 @@
 <?php
 fds_entete("Inscription enregistrée");
-
+var_dump($_POST);
 //Récupération de l'id de l'établissement
 $id_etablissement = $_POST["id_etablissement"];
 
@@ -48,18 +48,18 @@ else if ($nb_eleves === '' || $niveau === '') {
 }
 else {
 //Ajout de l'etablissement si besoin
-if ('-1' == $id_etablissement) {
+if ($id_etablissement == '-1') {
 	//Insertion d'un établissment dans la base au cas ou il n'existe pas
 	db_query("INSERT INTO `etablissements`(`nom`, `telephone`, `mail`, `adresse`, `code_postal`, `ville`, `fax`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s', NOW())", $nom_etablissement, $telephone, $email, $rue, $cp, $ville, $fax, get_annee());
 	$id_etablissement = mysqli_insert_id($mysql_conn);
 }
 
 //Insertion d'un responsable
-db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s','%s', NOW())", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, get_annee());
+db_query("INSERT INTO `accompagnateurs`(`nom`, `prenom`, `mail`, `tel`, `etablissement`, `annee`, `date_creation`) VALUES ('%s','%s','%s','%s','%s','%s', NOW())", $resp_nom, $resp_prenom, $resp_mail, $resp_telephone, $id_etablissement, get_annee());
 $idresp = mysqli_insert_id($mysql_conn);
 
 //Insertion de la réservation
-db_query("INSERT INTO `reservations`(`conference`, `disponibilite`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`, `annee`) VALUES ('%s',%s,'%s','%s','%s','%s','%s')", $conf, $id_dispo ,$id_etablissement, $idresp, $niveau, $nb_eleves, get_annee());
+db_query("INSERT INTO `reservations` (`conference`, `disponibilite`, `etablissement`, `accompagnateur`, `niveau`, `nb_eleves`, `annee`) VALUES (%s, %s, %s, %s, '%s', %s, '%s')", $conf, $id_dispo ,$id_etablissement, $idresp, $niveau, $nb_eleves, get_annee());
 
 //Recuperation titre et nom intervenant de la conférence
 $recup_conf = db_query("SELECT `titre`, `intervenant` FROM `conferences` WHERE id='%s'", $conf);
