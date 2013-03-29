@@ -7,7 +7,7 @@ $etablissements = db_query("SELECT id, nom, ville FROM etablissements WHERE anne
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">
-		<form method=POST action= villageprocess >
+		<form method=POST action= "inscriptionclosed" >
                 <h2>Informations sur l'établissement</h2>
                     Établissement: 
                     <select name="id_etablissement" id="etablissement">

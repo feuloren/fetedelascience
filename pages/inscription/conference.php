@@ -11,7 +11,7 @@ $conferences = db_query("SELECT c.id, i.id AS id_int, c.titre, i.nom, i.prenom
 ?>
 <div class="row-fluid">
   <div class="span12 well well-large">
-		<form method="POST" action="conferenceprocess">
+		<form method="POST" action="inscriptionclosed">
                 <h2>Choix de la conférence</h2>
                 <table>
                     <tr><td>Conférence :</td><td><select name="conf" id="liste-confs" class="input-xxlarge">
