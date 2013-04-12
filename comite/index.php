@@ -1,4 +1,5 @@
 <?php
+require_once('../include.php');
 fds_entete('Comité Fête de la science 2012');
 ?>
 

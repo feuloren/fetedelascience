@@ -1,5 +1,7 @@
 <?php
 
+require_once('../include.php');
+
 if (!isset($_GET['action']))
     die();
     

@@ -1,5 +1,7 @@
 <?php
 
+require_once('../include.php');
+
 // À renommer en 2012.php
 // Lorsqu'on aura les photos de l'édition 2003
 // Puis recréer une page photos.php

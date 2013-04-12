@@ -1,4 +1,5 @@
 <?php
+require_once('../include.php');
 fds_entete("Partenaire 2012");
 ?>
 <div class="row-fluid">

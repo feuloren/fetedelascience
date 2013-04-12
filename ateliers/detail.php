@@ -4,6 +4,8 @@ if (!isset($_GET['id']) or empty($_GET['id'])) {
   exit();
 }
 
+require_once('../include.php');
+
 $atelier = $_GET['id'];
 $req = db_query('SELECT * FROM ateliers12 WHERE `ref_at` LIKE \'%s\'', $atelier);
 

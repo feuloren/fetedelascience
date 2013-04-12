@@ -1,4 +1,5 @@
 <?php
+require_once('../include.php');
 add_header('<link href="/fetedelascience/style/bootstrap-timepicker.min.css" rel="stylesheet"/>');
 fds_entete("Inscription au Village");
 

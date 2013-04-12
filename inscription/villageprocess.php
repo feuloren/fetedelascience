@@ -1,4 +1,5 @@
 <?php
+require_once('../include.php');
 fds_entete("Inscription enregistrée");
 
 function add_intervenant($i) {

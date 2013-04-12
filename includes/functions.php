@@ -72,12 +72,12 @@ function add_header($header) {
 
 function fds_entete($titre) {
   global $additional_headers;
-  require('includes/entete.php');
+  require('entete.php');
 }
 
 function fds_basdepage($scripts="") {
   global $additional_scripts;
-  require('includes/basdepage.php');
+  require('basdepage.php');
 }
 
 $parametres = false;

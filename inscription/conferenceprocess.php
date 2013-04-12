@@ -1,4 +1,5 @@
 <?php
+require_once('../include.php');
 fds_entete("Inscription enregistrée");
 var_dump($_POST);
 //Récupération de l'id de l'établissement

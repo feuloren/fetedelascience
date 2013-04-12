@@ -4,6 +4,8 @@ if (!isset($_GET['id']) or empty($_GET['id'])) {
   exit();
 }
 
+require_once('../include.php');
+
 $conference = $_GET['id'];
 var_dump($conference);
 $req = db_query('SELECT * FROM conferences11 WHERE `ref_conf` = \'%s\'', $conference);

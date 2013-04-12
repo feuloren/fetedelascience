@@ -3,9 +3,3 @@ php_value zlib.output_compression 16386
 php_flag display_errors on
 php_value error_reporting 7
 
-RewriteEngine On
-RewriteBase /fetedelascience
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/?$ index.php?page=$1&subpage=$2 [L,QSA]
-RewriteRule ^([a-zA-Z0-9_]+)/?$  index.php?page=$1 [L,QSA]

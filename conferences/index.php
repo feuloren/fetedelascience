@@ -1,4 +1,6 @@
 <?php
+
+require_once('../include.php');
 require_once('aux.php');
 
 $req = db_query("SELECT * FROM conferences11");
@@ -7,7 +9,7 @@ $nav = '';
 // $body = '';
 
 while($data = $req->fetch_assoc()) {
-  $nav .= '<li><a href="/fetedelascience/conferences/detail?id='. $data['ref_conf'] .'">'. $data['titre'] .'</a></li>';
+  $nav .= '<li><a href="/fetedelascience/conferences/detail.php?id='. $data['ref_conf'] .'">'. $data['titre'] .'</a></li>';
   /* $body .= '<section id="'. $data['ref_conf'] .'" class="well
                                                          well-small">
   <div class="row-fluid">
@@ -28,7 +30,7 @@ fds_entete("Conférences 2012");
   <div class="span12">
     <div class="well">
       <ul class="nav nav-list fds-list" id="listeconfs">
-				<li class="fds-li-btn"><a href="/fetedelascience/inscription/conference" class="btn btn-warning">Inscription aux conférences</a></li>
+				<li class="fds-li-btn"><a href="/fetedelascience/inscription/conference.php" class="btn btn-warning">Inscription aux conférences</a></li>
 				<li class="divider"></li>
         <li class="nav-header">Liste des conférences</li>
         <?php echo stripslashes($nav); ?>

@@ -1,4 +1,6 @@
 <?php
+require_once('../include.php');
+
 $subject = $_POST["title"];
 $message = "<html><body>" . nl2br(htmlspecialchars(stripslashes($_POST["comments"]))) . "</body></html>";
 $nom = $_POST["realname"];
